@@ -1,0 +1,20 @@
+.form{
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 5%;
+ 
+}
+.input{
+    margin-top: 5%;
+}
+.select{
+    height: 30%;
+    width: 30%;
+}
+.option{
+    width: 30%;
+    height: 30%;
+}
+.submit{
+    width: 25%;
+    border: 1px solid red;
+}
