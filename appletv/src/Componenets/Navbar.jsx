@@ -26,9 +26,16 @@ import {
     ChevronRightIcon,
     SearchIcon,
   } from '@chakra-ui/icons';
+
   
   export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
+    const handleClick = () =>{
+        console.log("channa")
+    }
+    const handChange = (e) =>{
+        localStorage.setItem("search",JSON.stringify(e.target.value))
+    }
   
     return (
       <Box>
@@ -75,12 +82,12 @@ import {
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
-                 <InputGroup>
+                 <InputGroup onClick={()=>handleClick()}>
                  <InputLeftElement
                  pointerEvents='none'
                  children={<SearchIcon color='white' />}
                 />
-            <Input htmlSize={20} width='auto' placeholder='Search'  />
+            <Input onChange={(e)=>handChange(e)} color={"white"} htmlSize={20} width='auto' placeholder='Search'  />
                 </InputGroup>
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
@@ -108,6 +115,7 @@ import {
     const linkColor = useColorModeValue('gray.600', 'gray.200');
     const linkHoverColor = useColorModeValue('gray.800', 'white');
     const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+    
   
     return (
       <Stack  direction={'row'} spacing={4} >
