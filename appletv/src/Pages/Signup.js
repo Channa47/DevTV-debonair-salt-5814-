@@ -3,12 +3,15 @@ import {
     FormErrorMessage,
     Checkbox,
     Input,
-    Select
+    Select,
+    Button
   } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import {useDispatch} from "react-redux"
 import axios from "axios"
 import "./Signup.css"
-
+import { useForm } from 'react-hook-form'
+import { getDataSignup } from '../redux/auth/signup/signupaction'
 const SignupPage = ()=>{
     const init = {
         name:"",
@@ -17,7 +20,13 @@ const SignupPage = ()=>{
         password:"",
     }
    const [data,setData] = useState(init)
-
+  const [rdata,setrdata] =useState([])
+  const dispatch = useDispatch()
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+  } = useForm()
     const countries =[ 
         {name: 'Afghanistan', code: 'AF'}, 
         {name: 'Åland Islands', code: 'AX'}, 
@@ -263,37 +272,50 @@ const SignupPage = ()=>{
         {name: 'Zambia', code: 'ZM'}, 
         {name: 'Zimbabwe', code: 'ZW'} 
       ]
+ 
+      useEffect(()=>{
+          dispatch(getDataSignup)
+      },[])
 
       const handleChange = (e)=>{
             const {name,value} = e.target 
             setData({...data, [name]:value})
       }
-      const handleSubmit = (e)=>{
-            e.preventDefault()
-          return axios.post(`https://appletvusers.onrender.com/baseurl/users`,data)
+      const onSubmit = ()=>{
+        
+         console.log("hjjhsjkdf")
+        
       }
-      console.log(data)
-   return (
-<FormControl onSubmit={handleSubmit} className='form'  width="50%" height="90vh" paddingTop="3%" m="auto" marginTop="1%" paddingLeft="7%" paddingRight="7%">
+      console.log(rdata)
+   return (<>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormControl  className='form'  width="50%" height="90vh" paddingTop="3%" m="auto" marginTop="1%" paddingLeft="7%" paddingRight="7%">
 
-    <Input name='name' value={data.name} onChange={handleChange} className='input' isRequired type='text' placeholder="Enter your name"/>
+            <Input name='name' value={data.name} onChange={handleChange} className='input'  type='text' placeholder="Enter your name"/>
 
-    <Input name="email" value={data.email} onChange={handleChange} className='input' isRequired type='email' placeholder="enter your email" />
+            <Input name="email" value={data.email} onChange={handleChange} className='input'  type='email' placeholder="enter your email" />
 
-    <Input name="username" value={data.username} onChange={handleChange} className='input' isRequired type='text' placeholder="Enter your username"/>
+            <Input name="username" value={data.username} onChange={handleChange} className='input'  type='text' placeholder="Enter your username"/>
 
-    <Input name="password" value={data.password} onChange={handleChange} className='input' isRequired type='password' placeholder="Enter your password"/>  
+            <Input name="password" value={data.password} onChange={handleChange} className='input'  type='password' placeholder="Enter your password"/>  
 
-    <Input type="submit"/>
-    <Checkbox >Agree to Terms & Condition</Checkbox>
-    <p>Country/Region</p>
-  <Select width="30%" height="40%" defaultValue="IN" placeholder='Select country'>
-   {
-    countries.map((ele,i)=><option key={i} className='option' value={ele.code}>{ele.name}</option>)
-   }
-  </Select>
-</FormControl>
+            <Checkbox  onChange={handleChange} >Agree to Terms & Condition</Checkbox>
 
+            <p>Country/Region</p>
+
+            <Select onSelect={handleChange} width="30%" height="40%" defaultValue="IN" placeholder='Select country'>
+                {
+                     countries.map((ele,i)=><option key={i} className='option' value={ele.code}>{ele.name}</option>)
+                 }
+           </Select>
+      
+        </FormControl>
+        <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
+        Submit
+      </Button>
+
+     </form>
+</>
    )      
 
 }
