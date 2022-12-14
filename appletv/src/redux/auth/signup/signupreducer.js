@@ -9,7 +9,7 @@ const initstate = {
 
 
 
-export const reducer = (state = initstate,action)=>{
+export const signupreducer = (state = initstate,action)=>{
      
     switch(action.type){
          case types.GETUSERDATAREQUEST:{
