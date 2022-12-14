@@ -1,6 +1,5 @@
 import axios from "axios"
-import * as types from "./signupactiontype"
-
+import * as types from "./getsignupactiontype"
 
 
 

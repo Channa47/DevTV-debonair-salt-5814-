@@ -1,7 +1,13 @@
 .form{
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     border-radius: 5%;
- 
+    width: 50%;
+    height: 90vh;
+    margin: auto;
+    border: 1px solid red;
+    margin-top: 2%;
+   text-align: center;
+   padding: 10%;
 }
 .input{
     margin-top: 5%;
