@@ -1,30 +1,27 @@
-import {
-    FormControl,
-    FormErrorMessage,
-    Checkbox,
-    Input,
-    Select,
-    Button
-  } from '@chakra-ui/react'
+import { FormControl, FormErrorMessage, Checkbox, Input, Select, Button} from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
-import {useDispatch} from "react-redux"
-import axios from "axios"
+import {useDispatch, useSelector} from "react-redux"
 import "./Signup.css"
 import { useForm } from 'react-hook-form'
-import { getDataSignup } from '../redux/auth/signup/signupaction'
+import { getDataSignup } from '../redux/auth/getsignup/getsignupaction'
+import { postDatasignup } from '../redux/signup/signupaction'
 const SignupPage = ()=>{
     const init = {
         name:"",
         email:"",
         username:"",
         password:"",
+       token:null,
+       country:"",
+       checkbox:false
     }
    const [data,setData] = useState(init)
-  const [rdata,setrdata] =useState([])
+
   const dispatch = useDispatch()
+  const userdata = useSelector(store=>store.getSignupreducer)
+  console.log(userdata)
   const {
     handleSubmit,
-    register,
     formState: { errors, isSubmitting },
   } = useForm()
     const countries =[ 
@@ -274,22 +271,38 @@ const SignupPage = ()=>{
       ]
  
       useEffect(()=>{
-          dispatch(getDataSignup)
+          dispatch(getDataSignup())
       },[])
 
       const handleChange = (e)=>{
-            const {name,value} = e.target 
-            setData({...data, [name]:value})
+            const {name} = e.target 
+            let val;
+             if(name=="checkbox"){
+                val = e.target.checked
+             } 
+             else{
+               val = e.target.value
+             }
+          
+            setData({...data, [name]:val})
       }
-      const onSubmit = ()=>{
+      const onSubmit = (data)=>{
+        let payload = {...data,token:data.email}
         
-         console.log("hjjhsjkdf")
+         let getuseremai = userdata.userdata.filter(ele=>ele.email===payload.email)
+         if(getuseremai.length>0){
+          alert("this account already exist")
+         }
+         else{
+           dispatch(postDatasignup(payload))
+         }
         
+        setData("")
       }
-      console.log(rdata)
+
    return (<>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <FormControl  className='form'  width="50%" height="90vh" paddingTop="3%" m="auto" marginTop="1%" paddingLeft="7%" paddingRight="7%">
+      <form   className='form' onSubmit={handleSubmit(()=>onSubmit(data))}>
+        <FormControl width="50%" height="80vh" paddingTop="3%" m="auto" marginTop="1%" >
 
             <Input name='name' value={data.name} onChange={handleChange} className='input'  type='text' placeholder="Enter your name"/>
 
@@ -299,13 +312,13 @@ const SignupPage = ()=>{
 
             <Input name="password" value={data.password} onChange={handleChange} className='input'  type='password' placeholder="Enter your password"/>  
 
-            <Checkbox  onChange={handleChange} >Agree to Terms & Condition</Checkbox>
+            <Checkbox name="checkbox" onChange={handleChange} value={data.checkbox}>Agree to Terms & Condition</Checkbox>
 
             <p>Country/Region</p>
 
-            <Select onSelect={handleChange} width="30%" height="40%" defaultValue="IN" placeholder='Select country'>
+            <Select onChange={handleChange}  name="country" width="30%" height="40%" defaultValue="IN" placeholder='Select country'>
                 {
-                     countries.map((ele,i)=><option key={i} className='option' value={ele.code}>{ele.name}</option>)
+                     countries.map((ele,i)=><option key={i} className='option' value={ele.name}>{ele.name}</option>)
                  }
            </Select>
       

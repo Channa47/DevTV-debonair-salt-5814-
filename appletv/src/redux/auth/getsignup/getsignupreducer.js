@@ -1,4 +1,4 @@
-import * as types from "./signupactiontype"
+import * as types from "./getsignupactiontype"
 const initstate = {
     isloading:false,
     isError:false,
@@ -9,7 +9,7 @@ const initstate = {
 
 
 
-export const signupreducer = (state = initstate,action)=>{
+export const getSignupreducer = (state = initstate,action)=>{
      
     switch(action.type){
          case types.GETUSERDATAREQUEST:{
@@ -24,7 +24,7 @@ export const signupreducer = (state = initstate,action)=>{
                 ...state,
                 isError:false,
                 isloading:false,
-                todo:action.payload,
+                userdata:action.payload,
                 
             }
          }
