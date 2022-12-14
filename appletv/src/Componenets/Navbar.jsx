@@ -38,9 +38,10 @@ import {
     }
   
     return (
-      <Box>
+      <Box   >
         <Flex
-          position={"fixed"}
+        position={"relative"}
+         as="header"
           w="100%"
           bg={useColorModeValue('black', 'gray.800')}
           color={useColorModeValue('gray.600', 'black')}
