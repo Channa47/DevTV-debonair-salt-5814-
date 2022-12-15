@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, IconButton, Spinner, Text, useBreakpointValue } from '@chakra-ui/react';
+import { Box, IconButton, Image, Spinner, Text, useBreakpointValue } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
@@ -11,12 +11,11 @@ import axios from 'axios';
 // Settings for the slider
 const settings = {
   
-  arrows: false,
+  arrows: true,
  
-  infinite: true,
+  infinite: false,
   autoplay: false,
   speed: 50,
-  autoplaySpeed: 5000,
   slidesToShow: 5,
   slidesToScroll: 5,
 };
@@ -38,7 +37,7 @@ export default function WatchPremierForFree() {
   const getData=()=>{
     setLoading(true)
     try {
-      axios.get("https://movies-appletv.onrender.com/movies").then((res)=>{
+      axios.get("https://appllehomeserver.onrender.com/movies").then((res)=>{
       setCards(res.data)
       setLoading(false)
     })
@@ -62,15 +61,17 @@ export default function WatchPremierForFree() {
   }
 
   return (
+    <Box pt={['10px']}pb={['10px']}>
+    <Text fontSize={'20px'} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Watch Premieres for Free</Text>
     <Box
     marginTop={'50px'}
       position={'relative'}
-      height={'250px'}
-      border={'1px solid black'}
+      height={'170px'}
+      // border={'1px solid black'}
       margin={'auto'}
       overflow={'hidden'}>
-        <Text fontSize={'20px'} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Watch Premieres for Free</Text>
-      {/* CSS files for react-slick */}
+      
+          {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
         type="text/css"
@@ -83,7 +84,7 @@ export default function WatchPremierForFree() {
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
       {/* Left Icon */}
-      <IconButton
+      <IconButton 
         aria-label="left-arrow"
         colorScheme={'transparent'}
         borderRadius="full"
@@ -111,19 +112,20 @@ export default function WatchPremierForFree() {
         {/* <BiRightArrowAlt /> */}
       </IconButton>
       {/* Slider */}
-     <Box width="90%" margin={'auto'}>
+      
+     <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider  {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((item, index) => (
-            <Box key={item.id}   marginLeft={'0px'} h={'250px'} w={'90%'} >
-              {/* <iframe  src={`https://www.youtube.com/embed/${item.emdeddata}`} borderRadius='10px'
-               width="100%" height={'100%'}></iframe> */}
-               <iframe  width="100%" height={'100%'} src={`https://www.youtube.com/embed/${item.emdeddata}`} border="5px solid black" borderRadius='10px' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
-                clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} >
+              
+                <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
 
             </Box>
         ))}
       </Slider>
      </Box>
+     
+    </Box>
     </Box>
   );
 }
