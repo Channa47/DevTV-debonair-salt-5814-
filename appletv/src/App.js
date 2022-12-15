@@ -6,20 +6,23 @@ import MainRoutes from './Routes/mainRoutes';
 import Example from './Pages/example';
 import Faq from './Componenets/Faq';
 import Slider from './Componenets/Slider';
+
 import { HomePage } from './Pages/HomePage';
+
+import Additem from './Pages/Additem';
+
 
 function App() {
   // ()
   return (
     <div className="App">
-      <Navbar/>
+
       <MainRoutes/>
-      {/* <Example/> */}
-      
-      
+   
+      <Additem/>
+
     </div>
-
-
+    
   );
 }
 
