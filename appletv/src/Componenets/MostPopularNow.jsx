@@ -20,7 +20,7 @@ const settings = {
   slidesToScroll: 5,
 };
 
-export default function WatchPremierForFree() {
+export default function MostPopularNow() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState();
@@ -62,7 +62,7 @@ export default function WatchPremierForFree() {
 
   return (
     <Box pt={['10px']}pb={['10px']}>
-    <Text fontSize={'20px'} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Watch Premieres for Free</Text>
+    <Text fontSize={'20px'} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Most Popular Now</Text>
     <Box
     marginTop={'50px'}
       position={'relative'}
