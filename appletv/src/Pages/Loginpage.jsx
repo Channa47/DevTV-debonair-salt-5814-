@@ -3,23 +3,28 @@ import {
     Input,
     Button
   } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import {useDispatch,useSelector} from "react-redux"
 
 import "./Signup.css"
 import { useForm } from 'react-hook-form'
 import { logindata} from '../redux/auth/Login/loginaction'
+import { getDataSignup } from '../redux/auth/getsignup/getsignupaction'
 
 const LoginPage = ()=>{
     const init = {
         email:"",
         password:"",
     }
+  
    const [data,setData] = useState(init)
    
    const { handleSubmit, formState: { errors, isSubmitting },} = useForm()
  
    const dispatch = useDispatch()
+   useEffect(()=>{
+    dispatch(getDataSignup())
+},[dispatch])
    const userdata = useSelector(store=>store)
    console.log(userdata)
       const handleChange = (e)=>{
@@ -29,7 +34,8 @@ const LoginPage = ()=>{
       const onSubmit = (data)=>{
         dispatch(logindata(data))  
       }
-    
+   
+
    return (<>
       <form  className='form' onSubmit={handleSubmit(()=>onSubmit(data))}>
         <FormControl   width="80%" height="40%" paddingTop="3%" m="auto" marginTop="1%" paddingLeft="7%" paddingRight="7%">
