@@ -35,6 +35,13 @@ export const AddMovie = ()=>{
               })
         }else{
             dispatch(AddItemsAsAdmin(Data))
+            toast({
+                title: 'success',
+                description: "Item Added Successfully.",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+              })
             SetData(init)
         }
        
