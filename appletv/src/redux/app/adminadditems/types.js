@@ -7,3 +7,10 @@ export const ADMIN_ADD_ITEMS_ERR = "adminadderr";
 export const ADMIN_GET_ITEMS_REQ = "admingetitem";
 export const ADMIN_GET_ITEMS_SUC = "admingetsuc";
 export const ADMIN_GET_ITEMS_ERR = "admingeterr";
+
+
+export const ADMIN_DEL_ITEMS_REQ = "adminDELitem";
+export const ADMIN_DEL_ITEMS_SUC = "adminDEL";
+export const ADMIN_DEL_ITEMS_ERR = "adminDELerr";
+
+

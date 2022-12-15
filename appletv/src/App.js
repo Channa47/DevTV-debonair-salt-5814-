@@ -6,20 +6,32 @@ import MainRoutes from './Routes/mainRoutes';
 import Example from './Pages/example';
 import Faq from './Componenets/Faq';
 import Slider from './Componenets/Slider';
-import Additem from './Pages/Additem';
+import ManageItems from './Pages/ManageItemsPage';
+import MainNavbar from './Componenets/MainNavbar';
+
+
+
 
 function App() {
   // ()
   return (
     <div className="App">
       {/* <Navbar/> */}
-      {/* <MainRoutes/> */}
+
+     
       {/* <Example/> */}
       {/* <Slider/> */}
-      <Additem/>
-    </div>
     
+      <MainNavbar/>
+      <ManageItems/>
+    </div>
+
   );
 }
+
+
+
+
+
 
 export default App;

@@ -6,6 +6,7 @@ import {
   ADMIN_GET_ITEMS_REQ,
   ADMIN_GET_ITEMS_SUC,
   ADMIN_GET_ITEMS_ERR,
+  ADMIN_DEL_ITEMS_REQ,
 } from "./types";
 
 export const AddItemsAsAdmin = (payload) => (dispatch) => {
@@ -23,3 +24,9 @@ export const GetDataASAdmin = () => (dispatch) => {
     .then((r) =>{dispatch({ type: ADMIN_GET_ITEMS_SUC, payload: r.data })})
     .catch((e) => dispatch({type:ADMIN_GET_ITEMS_ERR}));
 };
+// export const DElelteItemAsAdmin = () => (dispatch) =>{
+//     dispatch({type:ADMIN_DEL_ITEMS_REQ});
+//     return axios
+//      .get("https://appllehomeserver.onrender.com/movies")
+//      .then((r)=>dispatch({type:}))
+// }
