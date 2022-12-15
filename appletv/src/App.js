@@ -6,18 +6,19 @@ import MainRoutes from './Routes/mainRoutes';
 import Example from './Pages/example';
 import Faq from './Componenets/Faq';
 import Slider from './Componenets/Slider';
+import Additem from './Pages/Additem';
 
 function App() {
   // ()
   return (
     <div className="App">
-      <Navbar/>
+      {/* <Navbar/> */}
       {/* <MainRoutes/> */}
       {/* <Example/> */}
-      <Slider/>
+      {/* <Slider/> */}
+      <Additem/>
     </div>
-
-
+    
   );
 }
 
