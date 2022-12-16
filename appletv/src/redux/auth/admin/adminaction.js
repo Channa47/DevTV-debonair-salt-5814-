@@ -8,7 +8,7 @@ import * as types from "./adminactiontype"
 
 
 
-export const getAdmindata = (params)=>(dispatch)=>{
+export const getAdmindata = ()=>(dispatch)=>{
       dispatch({type:types.GETADMINDATAREQUEST})
       return axios.get("https://appletvusers.onrender.com/admins")
       .then(r=>dispatch({type:types.GETADMINDATASUCCESS,payload:r.data}))

@@ -18,10 +18,11 @@ const Edituseraccount = () => {
         email: "",
     }
     const [data, setData] = useState(init)
-
+    
     const { handleSubmit, formState: { errors, isSubmitting }, } = useForm()
     const dispatch = useDispatch()
-   
+   const banned = useSelector(store=>store.editreducer)
+   console.log(banned)
 
     const handleChange = (e) => {
         const { name, value } = e.target
