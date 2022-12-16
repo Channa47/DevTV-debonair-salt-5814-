@@ -18,11 +18,13 @@ function App() {
   // ()
   return (
     <div className="App">
-      <MainNavbar/>
+     
+
 
       {/* <MainRoutes/> */}
       {/* <SearcToDelete/> */}
       <ManageItems/>
+
 
     </div>
     
