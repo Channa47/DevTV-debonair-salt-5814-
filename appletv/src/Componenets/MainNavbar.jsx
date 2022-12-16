@@ -28,7 +28,7 @@ import {
 
 
 
-  function MianNavbar() {
+  function MainNavbar() {
     const handChange = (e) =>{
         localStorage.setItem("search",JSON.stringify(e.target.value))
     }
@@ -115,4 +115,4 @@ import {
     );
   }
   
-  export default MianNavbar;
+  export default MainNavbar;

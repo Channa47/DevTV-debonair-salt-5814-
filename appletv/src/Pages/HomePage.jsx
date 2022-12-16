@@ -10,10 +10,14 @@ import RedemptionStories from "../Componenets/RedemptionStories";
 import AllDramaSeries from "../Componenets/AllDramaSeries";
 import AllComedySeries from "../Componenets/AllComedySeries";
 
+import MainNavbar from "../Componenets/MainNavbar";
+
+
 export const HomePage=()=>{
     return (
         <div>
             {/* <Navbar/> */}
+            {/* <MainNavbar/> */}
             <Slider/>
             <WatchPremierForFree/>
             <MostPopularNow/>
@@ -24,6 +28,7 @@ export const HomePage=()=>{
             <AllDramaSeries/>
             <AllComedySeries/>
             <AppleFAQ/>
+
 
         </div>
     )
