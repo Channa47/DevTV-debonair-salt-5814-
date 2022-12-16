@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import "./Signup.css"
 import { useForm } from 'react-hook-form'
-import { getdeleteuser } from '../redux/auth/admin/edituseraction'
+import { getbanuser } from '../redux/auth/admin/edituseraction'
 
 
 
@@ -28,7 +28,7 @@ const Edituseraccount = () => {
         setData({ ...data, [name]: value })
     }
     const onSubmit = (data) => {
-        dispatch(getdeleteuser(data))
+        dispatch(getbanuser(data))
          
     }
 

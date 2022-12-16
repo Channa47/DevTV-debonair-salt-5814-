@@ -5,9 +5,9 @@ import * as types from "./edituseractiotype"
 
 
 
-export const  getdeleteuser = (param)=>(dispatch)=>{
-          dispatch({type:types.DELETEUSERREQUEST})
-          return axios.delete("https://appletvusers.onrender.com/users",param)
-          .then(r=>dispatch({type:types.DELETEUSERSUCCESS}))
-          .catch(e=>dispatch({type:types.DELETEUSERFAILURE}))
+export const  getbanuser = ()=>(dispatch)=>{
+          dispatch({type:types.BANNUSERREQUEST})
+          return axios.delete("https://appletvusers.onrender.com/banned")
+          .then(r=>dispatch({type:types.BANNUSERSUCCESS,payload:r.data}))
+          .catch(e=>dispatch({type:types.DBANNUSERFAILURE}))
 }
