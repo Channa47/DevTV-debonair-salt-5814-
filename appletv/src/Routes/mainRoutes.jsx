@@ -9,6 +9,8 @@ function MainRoutes() {
             <Route path='/signup' element={<SignupPage/>}/>
             {/* <Route path='/signin' element={<Signin/>}/> */}
             {/* <Route path='singleitem/:id' element={<Singlepage/>}/> */}
+            {/* <Route path='/searchboxpage' element={<SearchBoxPage/>}/>
+        <Route path='/searchboxpage/:id' element={<SinglePage/>}/> */}
         </Routes>
   )
 }
