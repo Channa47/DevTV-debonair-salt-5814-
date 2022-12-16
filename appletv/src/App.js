@@ -9,17 +9,19 @@ import Slider from './Componenets/Slider';
 
 import { HomePage } from './Pages/HomePage';
 
-import Additem from './Pages/Additem';
-
+// import Additem from './Pages/Additem';
+import ManageItems from "./Pages/ManageItemsPage"
+import MainNavbar from "./Componenets/MainNavbar"
 
 function App() {
   // ()
   return (
     <div className="App">
+      <MainNavbar/>
 
       <MainRoutes/>
    
-      <Additem/>
+
       
 
     </div>

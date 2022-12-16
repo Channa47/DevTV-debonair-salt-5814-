@@ -28,10 +28,6 @@ function ManageItems() {
       setdeletitem(false)
     }
   }
-
-
- 
-
   return (
     <>
     
@@ -58,4 +54,3 @@ function ManageItems() {
 export default ManageItems
 
 
-   {/*  */}
