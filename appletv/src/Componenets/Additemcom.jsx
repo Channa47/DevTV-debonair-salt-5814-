@@ -14,16 +14,17 @@ const init = {
     genre:"",
     description:"Featuring an all-star cast, this genre-bending anthology series weaves together."
 }
+// const rootReducer = combineReducers({getSignupreducer,Loginreducer,Signupreducer,ItemManageReducer})
 
 export const AddMovie = ()=>{
     const [Data , SetData] = useState(init);
-    const store = useSelector((s)=>s.AdminAddReducer)
+    const store = useSelector((s)=>s.ItemManageReducer)
     const dispatch = useDispatch();
     const toast = useToast()
 
     useEffect(()=>{
         dispatch(GetDataASAdmin());
-    },[dispatch])
+    },[dispatch,store.Data.length])
 
     const handleSubmit = (e)=>{
         e.preventDefault();

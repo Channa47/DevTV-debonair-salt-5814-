@@ -5,6 +5,9 @@ import {
   ADMIN_GET_ITEMS_REQ,
   ADMIN_GET_ITEMS_SUC,
   ADMIN_GET_ITEMS_ERR,
+  ADMIN_DEL_ITEMS_REQ,
+  ADMIN_DEL_ITEMS_SUC,
+  ADMIN_DEL_ITEMS_ERR,
 } from "./types";
 
 const init = {
@@ -13,7 +16,7 @@ const init = {
   Data: [],
 };
 
-export const AdminAddReducer = (state = init, { type, payload }) => {
+export const ItemManageReducer = (state = init, { type, payload }) => {
   switch (type) {
     case ADMIN_ADD_ITEMS_ERR:
       return {
@@ -51,7 +54,26 @@ export const AdminAddReducer = (state = init, { type, payload }) => {
         isLoading: false,
         isErr: true,
       };
+    case ADMIN_DEL_ITEMS_REQ:
+      return {
+        ...state,
+        isLoading : true
+      }
+    case ADMIN_DEL_ITEMS_SUC :
+      const newItems = state.movies.filter((cI) => cI.id !== payload.id);
+      return {
+        ...state,
+        isLoading:false,
+        Data:newItems
+      }
+    case ADMIN_DEL_ITEMS_ERR :
+      return {
+        ...state,
+        isLoading:false,
+        isErr : true
+      }
     default:
       return state;
+
   }
 };

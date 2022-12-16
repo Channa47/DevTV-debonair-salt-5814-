@@ -12,6 +12,7 @@ import { HomePage } from './Pages/HomePage';
 // import Additem from './Pages/Additem';
 import ManageItems from "./Pages/ManageItemsPage"
 import MainNavbar from "./Componenets/MainNavbar"
+import SearcToDelete from './Componenets/SearcToDelete';
 
 function App() {
   // ()
@@ -19,10 +20,9 @@ function App() {
     <div className="App">
       <MainNavbar/>
 
-      <MainRoutes/>
-   
-
-      
+      {/* <MainRoutes/> */}
+      {/* <SearcToDelete/> */}
+      <ManageItems/>
 
     </div>
     
