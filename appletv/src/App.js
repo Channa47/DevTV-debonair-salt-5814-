@@ -19,7 +19,7 @@ function App() {
 
       <MainRoutes/>
    
-      <Additem/>
+      {/* <Additem/> */}
 
     </div>
     

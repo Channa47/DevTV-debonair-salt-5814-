@@ -1,6 +1,7 @@
 import React, {  useEffect, useState } from 'react'
 import styled from "styled-components";
 import ShowallData from './ShowallData';
+import img1 from "./Image/brand.png.png"; 
 // import axios from "axios";
 const SearchBox = ({queryHandler, suggestions}) => {
   
@@ -16,7 +17,7 @@ const SearchBox = ({queryHandler, suggestions}) => {
 const handledata = async(input)=>{
 
 
-let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${input}&key=AIzaSyAcmhi3DMauME8NmnElfH0nhzzwL7rdmRs`;
+let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=${input}&key=AIzaSyAVqqVq-hs1_knVD2RlhKR34oc7n17D90M`;
 
         let res = await fetch(url);
         let data = await res.json();
@@ -31,9 +32,11 @@ let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResu
   },[input,queryHandler])
     return (
       <div>
- <Wrapper>
+        <NavbarSection>
+          <img src={img1} alt="avtar" width='100px' height='80px'/>
+<Wrapper>
         <SearchBarWrappr>
-          <Input value={input} onChange={handleInputChange}/>
+          <Input value={input} placeholder="Search..." onChange={handleInputChange}/>
           <button onClick={()=>handledata(input)}><i class='bx bx-search' ></i></button>
         </SearchBarWrappr>
         <SugestionsBox>
@@ -45,6 +48,8 @@ let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResu
         </SugestionsBox>
        
     </Wrapper>
+        </NavbarSection>
+ 
     
      <Showdata>
  <ShowallData data={value}/>
@@ -56,36 +61,93 @@ let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResu
 
 export default SearchBox;
 
+const NavbarSection= styled.div`
+border: 1px solid teal;
+display:flex;
+width:100%;
+height: 80px;
+background-color: black;
+
+@media screen and (max-width: 375px){
+           border: 1px solid teal;
+display:flex;
+width:100%;
+height: 80px;
+background-color: black;
+ 
+    }
+   @media screen and (max-width: 280px){
+           border: 1px solid teal;
+display:flex;
+width:auto;
+height:80px;
+background-color: black;
+
+ 
+    } 
+`;
+
 const Showdata = styled.div`
-margin-top:100px
+margin-top:100px;
 `;
 const SugestionsBox = styled.div`
-border: 1px solid black
-max-height: 200px;
+border: 1px solid black;
+max-height: 130px;
 overflow: auto;
-
+background-color: white;
+float:right;
 & * {
     padding: 10px;
     text-align:left;
     padding-left: 20px;
 }
+ @media screen and (max-width: 280px){
+      border: 1px solid black;
+max-height: 90px;
+overflow: auto;
+background-color: white;
+float:right;
+& * {
+    padding: 10px;
+    text-align:left;
+    padding-left: 20px;
+}
+}
 `;
 
 const SearchBarWrappr = styled.div`
 display : flex;
-border: 1px solid black
+border: 1px solid black;
 
 `;
 const Input = styled.input`
-border: 1 px solid red;
+
+border: 1px solid white;
+color:white;
 flex:1;
 font-size:20px;
 border:none;
 outline:none;
+background-color: black;
+
+
 `
 const Wrapper= styled.div `
-border : 1px solid red;
+border : 1px solid white;
 max-width:300px;
 margin:auto;
-
+    margin-right: 30px;
+@media screen and (max-width: 375px){
+border : 1px solid white;
+max-width:200px;
+margin:auto;
+ 
+ 
+    }
+    @media screen and (max-width: 280px){
+      border : 1px solid white;
+max-width:80px;
+margin:auto;
+   
+    }
 `

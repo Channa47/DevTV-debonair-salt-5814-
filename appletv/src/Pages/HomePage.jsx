@@ -6,7 +6,7 @@ import Slider from "../Componenets/Slider";
 export const HomePage=()=>{
     return (
         <div>
-            {/* <Navbar/> */}
+            <Navbar/>
             <Slider/>
             <WatchPremierForFree/>
             <MostPopularNow/>

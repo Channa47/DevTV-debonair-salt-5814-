@@ -1,6 +1,11 @@
 import React from 'react'
 import {Routes, Route} from "react-router-dom"
-import { SignupPage } from '../Pages/Signup'
+import { HomePage } from '../Pages/HomePage'
+
+// import { SignupPage } from '../Pages/Signup'
+// import SinglePage from "../Pages/SP_pages/SinglePage";
+// import SearchBoxPage from "../Pages/SP_pages/SearchBoxPage";
+import { SignupPage } from '../Pages/Signup';
 
 function MainRoutes() {
   return (
