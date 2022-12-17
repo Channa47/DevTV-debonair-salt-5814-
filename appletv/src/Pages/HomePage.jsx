@@ -11,6 +11,8 @@ import AllDramaSeries from "../Componenets/AllDramaSeries";
 import AllComedySeries from "../Componenets/AllComedySeries";
 
 import MainNavbar from "../Componenets/MainNavbar";
+import Footer from "../Componenets/Footer";
+import NonFiction from "../Componenets/NonFiction";
 
 
 export const HomePage=()=>{
@@ -27,9 +29,9 @@ export const HomePage=()=>{
             <RedemptionStories/>
             <AllDramaSeries/>
             <AllComedySeries/>
+            <NonFiction/>
             <AppleFAQ/>
-
-
+            <Footer/>
         </div>
     )
 }
