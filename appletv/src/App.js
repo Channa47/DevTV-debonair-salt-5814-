@@ -20,10 +20,10 @@ function App() {
     <div className="App">
      
 
-
+      <MainNavbar/>
       {/* <MainRoutes/> */}
       {/* <SearcToDelete/> */}
-      {/* <ManageItems/> */}
+      <ManageItems/>
 
 
     </div>
