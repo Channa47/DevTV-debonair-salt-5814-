@@ -33,14 +33,12 @@ import {
     const handleClick = () =>{
         console.log("channa")
     }
-    const handChange = (e) =>{
-        localStorage.setItem("search",JSON.stringify(e.target.value))
-    }
+   
   
     return (
-      <Box   >
+      <Box  w="100%"    >
         <Flex
-        position={"relative"}
+        // position={"fixed"}
          as="header"
           w="100%"
           bg={useColorModeValue('black', 'gray.800')}
@@ -51,7 +49,9 @@ import {
           borderBottom={1}
           borderStyle={'solid'}
           borderColor={useColorModeValue('gray.200', 'gray.900')}
-          align={'center'}>
+          align={'center'}
+          pos='fixed'
+          >
           <Flex
             flex={{ base: 1, md: 'auto' }}
             ml={{ base: -2 }}
@@ -88,7 +88,7 @@ import {
                  pointerEvents='none'
                  children={<SearchIcon color='white' />}
                 />
-            <Input onChange={(e)=>handChange(e)} color={"white"} htmlSize={20} width='auto' placeholder='Search'  />
+            <Input  color={"white"} htmlSize={20} width='auto' placeholder='Search'  />
                 </InputGroup>
             <Button
               display={{ base: 'none', md: 'inline-flex' }}
@@ -119,7 +119,7 @@ import {
     
   
     return (
-      <Stack  direction={'row'} spacing={4} >
+      <Stack  direction={'row'} spacing={4} position='fixed' >
         {NAV_ITEMS.map((navItem) => (
           <Box  key={navItem.label}>
             <Popover trigger={'hover'} placement={'bottom-start'}>
