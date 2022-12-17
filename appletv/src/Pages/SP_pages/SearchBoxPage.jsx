@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import SearchBox from './searchBox';
 // import axios from 'axios';
-import movies from '../Components/Movie';
+import movies from '../../Componenets/SinglePageComponents/Movie';
 const SearchBoxPage = () => {
   const [query, setQuery] = useState("");
   // const [data, setData] = useState("")

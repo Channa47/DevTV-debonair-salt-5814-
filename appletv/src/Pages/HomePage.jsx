@@ -18,8 +18,12 @@ import NonFiction from "../Componenets/NonFiction";
 export const HomePage=()=>{
     return (
         <div>
+
+            
+
             {/* <Navbar/> */}
             {/* <MainNavbar/> */}
+
             <Slider/>
             <WatchPremierForFree/>
             <MostPopularNow/>

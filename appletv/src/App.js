@@ -27,9 +27,8 @@ function App() {
 
       <MainRoutes/>
    
-      <Additem/>
-      
-      
+
+  
 
     </div>
     
