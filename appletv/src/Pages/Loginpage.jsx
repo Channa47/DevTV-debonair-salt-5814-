@@ -8,8 +8,9 @@ import {useDispatch,useSelector} from "react-redux"
 
 import "./Signup.css"
 import { useForm } from 'react-hook-form'
-import { logindata} from '../redux/auth/Login/loginaction'
+
 import { getDataSignup } from '../redux/auth/getsignup/getsignupaction'
+import { json } from 'react-router'
 
 const LoginPage = ()=>{
     const init = {
@@ -25,14 +26,23 @@ const LoginPage = ()=>{
    useEffect(()=>{
     dispatch(getDataSignup())
 },[dispatch])
-   const userdata = useSelector(store=>store)
+   const userdata = useSelector(store=>store.getSignupreducer.userdata)
    console.log(userdata)
       const handleChange = (e)=>{
             const {name,value} = e.target 
             setData({...data, [name]:value})
       }
+    let tokendata = JSON.parse(localStorage.getItem("token"))||[]
+    console.log(tokendata)
       const onSubmit = (data)=>{
-        dispatch(logindata(data))  
+       let loginuser = userdata.filter(ele=>ele.email===data.email && ele.password == data.password)
+       if(loginuser.length>0){
+            localStorage.setItem("token",JSON.stringify(loginuser[0].token))
+       }
+       else{
+        alert("the email or password is incorrect")
+       }
+        
       }
    
 
