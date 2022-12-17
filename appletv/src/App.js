@@ -13,6 +13,7 @@ import { HomePage } from './Pages/HomePage';
 import ManageItems from "./Pages/ManageItemsPage"
 import MainNavbar from "./Componenets/MainNavbar"
 import SearcToDelete from './Componenets/SearcToDelete';
+import Loadder from './Componenets/Loadder';
 
 function App() {
   // ()
@@ -23,7 +24,8 @@ function App() {
       <MainNavbar/>
       {/* <MainRoutes/> */}
       {/* <SearcToDelete/> */}
-      <ManageItems/>
+      {/* <ManageItems/> */}
+      {/* <Loadder/> */}
 
 
     </div>
