@@ -1,0 +1,61 @@
+.heading_style{
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: left;
+
+}
+
+.HowToWatch_main_box{
+    width: 20%;
+}
+
+.HowToWatch_logo_box{
+    box-shadow: 0 4px 7px rgb(0 0 0 / 25%);
+    border: 0.5px solid rgba(128,128,128,.2);
+    background-color: rgb(40, 39, 39);
+    border-radius: 12px;
+}
+
+.HowToWatch_appleTvLogo{
+    border-radius: 12px 12px 0px 0px;
+}
+
+.HowToWatch_FreeTrail{
+    color: white;
+    text-align: start;
+    margin: 20px 0px 20px 10px;
+}
+
+.HowToWatch_Freedays{
+    color: black;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+@media screen and (max-width : 1080px) {
+    .HowToWatch_main_box{
+        width: 25%;
+    }
+}
+
+@media screen and (max-width : 750px) {
+    .HowToWatch_main_box{
+        width: 30%;
+    }
+}
+
+@media screen and (max-width : 630px) {
+    .HowToWatch_main_box{
+        width: 35%;
+    }
+
+    .HowToWatch_FreeTrail{
+        text-align: center;
+        margin: 10px 0px 10px 0px;
+    }
+
+    .HowToWatch_Freedays{
+        font-size: 9px;
+    }
+}

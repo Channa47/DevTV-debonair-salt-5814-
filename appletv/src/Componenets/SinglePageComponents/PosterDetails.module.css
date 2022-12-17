@@ -1,0 +1,135 @@
+.PosterDetails_Main_Div{
+    position: absolute;
+    top: 600px;
+    left: 51px;
+    width: 95%; 
+display: flex;
+gap: 2%;
+padding: 0% 2% 0% 2%;
+backdrop-filter: blur(20px);
+
+}
+
+.Buttons_div{
+    display: block;
+    width: 25%;
+}
+
+.AppleTV{
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.PosterDetails_Buttons{
+    width: 100%;
+    padding: 20px 0px 20px 0px;
+    margin-bottom: 8px;
+    color: black;
+    background-color:transparent;
+}
+
+.PosterDetails_Movie_desc_div{
+    width: 60%;
+}
+
+.PosterDetails_Movie_desc{
+    color: white;
+    font-size: 14px;
+    width: fit-content;
+    text-align: start;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.PosterDetails_genreRelease_div{
+    font-size: 14px;
+    color: white;
+    display: flex;
+    gap: 10px;
+    align-self: baseline;
+    align-items: baseline;
+}
+
+.PosterDetails_genreRelease{
+    margin-right: 10%;
+}
+
+.PosterDetails_tickmark_img{
+    width: 3%;
+    align-items: baseline;
+}
+
+.PosterDetails_Starring_div{
+    color: white;
+    font-size: 14px;
+    text-align:start;
+    padding-top: 1.5%;
+}
+
+@media screen and (max-width:820px){
+    .PosterDetails_Movie_desc{
+        font-size : 16px;
+    }
+
+    .PosterDetails_genreRelease_div{
+        font-size: 12px;
+    }
+
+    .PosterDetails_Main_Div{
+        display: block;
+        width: 100%;
+        left:auto;
+        margin: auto;
+    }
+
+    .Buttons_div{
+        margin: auto;
+        width: 45%;
+    }
+
+    .PosterDetails_Movie_desc_div{
+        width: 95%;
+    }
+    
+}
+
+@media screen and (max-width : 590px){
+    .Buttons_div{
+        width: 55%;
+    }
+
+    .PosterDetails_Movie_desc_div{
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .PosterDetails_Movie_desc{
+        font-size: 12px;
+    }
+
+    .PosterDetails_Starring_div{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width : 480px){
+    .Buttons_div{
+        width: 60%;
+    }
+
+    .PosterDetails_Movie_desc_div{
+        width: 100%;
+        font-size: 8px;
+        overflow: hidden;
+    }
+
+    .PosterDetails_Movie_desc{
+        font-size: 11px;
+    }
+
+    .PosterDetails_Starring_div{
+        font-size: 11px;
+    }
+}

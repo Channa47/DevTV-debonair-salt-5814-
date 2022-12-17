@@ -1,0 +1,29 @@
+.Information_main_box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Information_box{
+  width: 63%;
+  text-align: start;
+}
+
+.heading_style{
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.Information_content_box{
+   margin-bottom: 20px;
+}
+
+.Information_content_box_Text{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.Information_content_box_Value{
+    font-size: 10px;
+}
