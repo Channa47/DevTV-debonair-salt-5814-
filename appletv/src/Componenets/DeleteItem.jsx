@@ -16,13 +16,14 @@ function DeleteItem() {
     const [op2, setop2] = useState(false);
     const store = useSelector(s=>s.ItemManageReducer)
     const toast = useToast();
+    const dispatch = useDispatch();
 
     useEffect(()=>{
       dispatch(GetDataASAdmin())
     },[dispatch,store.Data.length])
 
     console.log(store);
-    const dispatch = useDispatch();
+    
     const delet = () =>{
         // d
         dispatch(DElelteItemAsAdmin(id))
