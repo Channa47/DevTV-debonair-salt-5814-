@@ -22,9 +22,9 @@ export const AddMovie = ()=>{
     const dispatch = useDispatch();
     const toast = useToast()
 
-    useEffect(()=>{
-        dispatch(GetDataASAdmin());
-    },[dispatch,store.Data.length])
+    // useEffect(()=>{
+    //     dispatch(GetDataASAdmin());
+    // },[dispatch])
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -53,7 +53,7 @@ export const AddMovie = ()=>{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     `;
     return (
-        <div style={{border:"2px solid black" ,borderRadius:"15px"  ,backgroundColor:"GrayText",   width:"50%", margin:"auto",marginTop:"20px"}}>
+        <div style={{border:"2px solid black" ,borderRadius:"15px"  ,backgroundColor:"GrayText",   width:"50%", margin:"auto"}}>
             <div style={{borderColor:"black"}}>
             <p style={{fontSize:"50px",backgroundColor:"#4681f4",borderRadius:"15px"}}>ADD ITEM</p>
         <form action="" onSubmit={(e)=>handleSubmit(e)}>

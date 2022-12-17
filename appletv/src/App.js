@@ -22,7 +22,7 @@ function App() {
 
       {/* <MainRoutes/> */}
       {/* <SearcToDelete/> */}
-      <ManageItems/>
+      {/* <ManageItems/> */}
 
     </div>
     

@@ -14,3 +14,8 @@ export const ADMIN_DEL_ITEMS_SUC = "adminDEL";
 export const ADMIN_DEL_ITEMS_ERR = "adminDELerr";
 
 
+export const ADMIN_UPDATE_REQ = "adminUPitem";
+export const ADMIN_UPDATE_SUC = "adminUPSuc";
+export const ADMIN_UPDATE_ERR = "adminUpdateErr";
+ 
+
