@@ -2,15 +2,16 @@ import { Box } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import About from "../Components/About";
-import BonusContent from "../Components/BonusContent";
-import CrewAndCast from "../Components/CrewAndCast";
-import HowToWatch from "../Components/HowToWatch";
-import Information from "../Components/Information";
-import PosterDetails from "../Components/PosterDetails";
-import PosterVideo from "../Components/PosterVideo";
-import Related from "../Components/Related";
-import Trailers from "../Components/Trailers";
+import CopyrightSection from "../Componenets/SinglePageComponents/CopyrightSection";
+import About from "../Componenets/SinglePageComponents/About";
+import BonusContent from "../Componenets/SinglePageComponents/BonusContent";
+import CrewAndCast from "../Componenets/SinglePageComponents/CrewAndCast";
+import HowToWatch from "../Componenets/SinglePageComponents/HowToWatch";
+import Information from "../Componenets/SinglePageComponents/Information";
+import PosterDetails from "../Componenets/SinglePageComponents/PosterDetails";
+import PosterVideo from "../Componenets/SinglePageComponents/PosterVideo";
+import Related from "../Componenets/SinglePageComponents/Related";
+import Trailers from "../Componenets/SinglePageComponents/Trailers";
 
 
 export default function SinglePage(){
@@ -47,26 +48,38 @@ export default function SinglePage(){
      releaseYear={info[1]}
      />
 
-     <Box marginLeft='30px'>
+     <Box marginLeft='30px'>     
      <Trailers
      movieCode={singleMovie.emdeddata}
      />
-     <hr style={{background:"grey",height:"0.8px",width:"98%",margin:"auto",marginTop:"30px",marginBottom:"20px"}}/>
+
+<hr style={{background:"grey",height:"0.8px",width:"98%",margin:"auto",marginTop:"30px",marginBottom:"20px"}}/>
+     
      <BonusContent
      movieCode={singleMovie.emdeddata}
      />
+
 <hr style={{background:"grey",height:"0.8px",width:"98%",margin:"auto",marginTop:"30px",marginBottom:"20px"}}/>
+     
      <Related/>
+
 <hr style={{background:"grey",height:"0.8px",width:"98%",margin:"auto",marginBottom:"20px"}}/>
+     
      <CrewAndCast/>
+
 <hr style={{background:"grey",height:"0.8px",width:"98%",margin:"auto",marginBottom:"20px"}}/>   
+
      <HowToWatch/>
+
 <hr style={{background:"grey",margin:"auto",marginTop:"20px",marginBottom:"10px",marginLeft:"-30px"}}/>
+
      <About
      movieName={singleMovie.name}
      genre={info[0]}
      />
+
      <hr style={{background:"grey",height:"0.8px",width:"98%",margin:"auto",marginTop:"30px",marginBottom:"20px"}}/>
+
      <Information
      regionOfOrigin={info[3] || "United States"}
      genre={info[0]}
@@ -74,6 +87,11 @@ export default function SinglePage(){
      rated={info[2]}
      originalAudio = {languages[0]}
      />
+
+<hr style={{background:"grey",margin:"auto",marginTop:"20px",marginBottom:"10px",marginLeft:"-30px"}}/>
+
+     <CopyrightSection/>
+
      </Box>
         </div>
     )

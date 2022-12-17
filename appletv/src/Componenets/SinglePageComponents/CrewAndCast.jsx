@@ -8,6 +8,7 @@ import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
 import Slider from 'react-slick';
 import axios from 'axios';
 import styles from "./CrewAndCast.module.css";
+import { useParams } from 'react-router-dom';
 
 // Settings for the slider
 const settings = {
@@ -22,7 +23,7 @@ const settings = {
 }
 
 export default function CrewAndCast() {
-    const param = 30;
+    const {id} = useParams();
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState();
@@ -39,7 +40,7 @@ export default function CrewAndCast() {
   const getData=()=>{
     setLoading(true)
     try {
-      axios.get(`https://movies-appletv.onrender.com/movies/${param}`).then((res)=>{
+      axios.get(`https://movies-appletv.onrender.com/movies/${id}`).then((res)=>{
       setCast(res.data.cast)
       setLoading(false)
     })

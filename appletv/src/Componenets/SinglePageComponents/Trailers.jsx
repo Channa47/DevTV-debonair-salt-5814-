@@ -2,7 +2,6 @@ import { Box, Text } from "@chakra-ui/react";
 import styles from "./Trailers.module.css";
 
 export default function Trailers({movieCode}){
-    const param = 7;
     return(
         <Box>
             <Text className={styles.heading_style}>Trailer</Text>

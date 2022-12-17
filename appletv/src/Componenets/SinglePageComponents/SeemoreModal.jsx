@@ -1,4 +1,5 @@
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
+import styles from "./SeemoreModal.module.css";
 
 export default function SeemoreModal() {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -13,10 +14,19 @@ export default function SeemoreModal() {
             <ModalHeader>Subtitles</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Molestiae odio sit ipsum non numquam, quisquam aspernatur ducimus quo iure.
-                 Soluta perspiciatis cupiditate necessitatibus voluptates ipsa corrupti aut atque iste voluptate.
-                 </Text>
+            <Text className={styles.heading_style} >Languages</Text>
+            <ul className={styles.SeemoreModal_ul}>
+                            <li className={styles.SeemoreModal_list}>English <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                            <li className={styles.SeemoreModal_list}>French (Canada) <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                            <li className={styles.SeemoreModal_list}>French (France) <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                            <li className={styles.SeemoreModal_list}>German <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                            <li className={styles.SeemoreModal_list}>Italian <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                            <li className={styles.SeemoreModal_list}>Japanese <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                            <li className={styles.SeemoreModal_list}>Portuguese (Brazil) <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                            <li className={styles.SeemoreModal_list}>Russian <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                            <li className={styles.SeemoreModal_list}>Spanish (Latin America) <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                            <li className={styles.SeemoreModal_list}>Spanish (Spain) <span className={styles.SeemoreModal_span}> (AD, Dolby&nbsp;Atmos, Dolby&nbsp;5.1, AAC)</span></li>
+                    </ul>
             </ModalBody>
             <ModalFooter>
             </ModalFooter>
