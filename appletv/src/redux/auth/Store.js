@@ -5,9 +5,9 @@ import { getSignupreducer } from "./getsignup/getsignupreducer"
 import { Loginreducer } from "./Login/loginreducer"
 import { Signupreducer } from "../signup/signupreducer"
 import {adminreducer} from "./admin/adminreducer"
-import { editreducer } from "./admin/edituserreducer"
+import { getbannreducer,addbannreducer,removebannreducer} from "./admin/edituserreducer"
 import thunk from "redux-thunk"
 
 
-const rootReducer = combineReducers({getSignupreducer,Loginreducer,Signupreducer,adminreducer,editreducer})
+const rootReducer = combineReducers({getSignupreducer,Loginreducer,Signupreducer,adminreducer,getbannreducer,addbannreducer,removebannreducer})
 export const store = legacy_createStore(rootReducer,applyMiddleware(thunk))

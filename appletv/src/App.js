@@ -13,7 +13,7 @@ import MainNavbar from "./Componenets/MainNavbar"
 function App() {
   return (
     <div className="App">
-      <MainNavbar/>
+      {/* <MainNavbar/> */}
 
       <MainRoutes/>
    
