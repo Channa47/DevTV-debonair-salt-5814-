@@ -1,16 +1,16 @@
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
+import { Box, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
 import styles from "./SeemoreModal.module.css";
 
 export default function SeemoreModal() {
     const { isOpen, onOpen, onClose } = useDisclosure()
   
     return (
-      <>
+      <Box >
         <Text color="blue" cursor="pointer" onClick={onOpen}>see more</Text>
   
         <Modal onClose={onClose} isOpen={isOpen} isCentered>
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent backgroundColor={'rgb(52, 51, 51)'} color="white">
             <ModalHeader>Subtitles</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
@@ -32,6 +32,6 @@ export default function SeemoreModal() {
             </ModalFooter>
           </ModalContent>
         </Modal>
-      </>
+      </Box>
     )
   }

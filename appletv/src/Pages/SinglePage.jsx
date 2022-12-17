@@ -12,6 +12,7 @@ import PosterDetails from "../Componenets/SinglePageComponents/PosterDetails";
 import PosterVideo from "../Componenets/SinglePageComponents/PosterVideo";
 import Related from "../Componenets/SinglePageComponents/Related";
 import Trailers from "../Componenets/SinglePageComponents/Trailers";
+import styles from "./SinglePage.module.css"
 
 
 export default function SinglePage(){
@@ -36,7 +37,7 @@ export default function SinglePage(){
     },[])
 
     return(
-        <div>
+        <div className={styles.SinglePage_main_div}>
 
      <PosterVideo
      singleMovie={singleMovie}
