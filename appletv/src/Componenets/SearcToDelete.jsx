@@ -15,7 +15,7 @@ function SearcToDelete() {
 
     useEffect(()=>{
         dispatch(GetDataASAdmin());
-    },[dispatch.store.Data.length])
+    },[dispatch,store.Data.length])
 
 
     // const handledata = async(input)=>{
