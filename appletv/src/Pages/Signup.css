@@ -1,26 +1,30 @@
-.form{
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-    border-radius: 5%;
-    width: 50%;
-    height: 90vh;
-    margin: auto;
+ .form{
+/*      
     border: 1px solid red;
-    margin-top: 2%;
-   text-align: center;
-   padding: 10%;
-}
+    width: 100%;
+    height: 400px;
+    margin-top: 2%; */
+    text-align: center;
+    margin: auto;
+   
+} 
 .input{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: 1px solid red;
     margin-top: 5%;
+    width: 200px;
+    
 }
-.select{
+/* .select{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     height: 30%;
     width: 30%;
-}
-.option{
+} */
+/* .option{
     width: 30%;
     height: 30%;
-}
-.submit{
+} */
+/* .submit{
     width: 25%;
     border: 1px solid red;
-}
+} */

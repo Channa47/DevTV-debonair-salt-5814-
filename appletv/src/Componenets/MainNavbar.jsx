@@ -25,6 +25,7 @@ import {
   import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
   import {Link} from "react-router-dom"
   import { SignupPage } from "../Pages/Signup";
+import SignupButton from "./Modal_SignupButton";
 
 
 
@@ -81,7 +82,8 @@ import {
                 mr={10}
               >
                 <Link to="/home"><input onChange={(e)=>handChange(e)} style={{border:"2px solid white" , backgroundColor:"black", color:"white"}} placeholder="&#128270; Search"  type="text" /></Link>
-                <Button border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Sign Up</Button>
+                {/* <Button border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Sign Up</Button> */}
+                <SignupButton/>
                 {/* <Popover>
     <PopoverTrigger>
     <Button border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Sign Up</Button>
@@ -106,7 +108,8 @@ import {
             >
               <VStack spacing={14} mt="20">
                 <Link to="/home"><input onChange={(e)=>handChange(e)} style={{border:"2px solid white" , backgroundColor:"black", color:"white"}} placeholder="&#128270; Search"  type="text" /></Link>
-                <Link to="/signup"><Button border={"none"} _hover={{background:"blue"}} background={"blue"} color="white">Sign Up</Button></Link>
+                {/* <Link to="/signup"><Button border={"none"} _hover={{background:"blue"}} background={"blue"} color="white">Sign Up</Button></Link> */}
+                <SignupButton/>
               </VStack>
             </VStack>
           ) : null}

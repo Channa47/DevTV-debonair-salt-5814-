@@ -302,7 +302,7 @@ const SignupPage = ()=>{
 
    return (<>
       <form   className='form' onSubmit={handleSubmit(()=>onSubmit(data))}>
-        <FormControl width="50%" height="80vh" paddingTop="3%" m="auto" marginTop="1%" >
+        <FormControl width="60%" height="auto" paddingTop={['0','0','3%',"3%"]} m="auto" marginTop={['0','0','1%',"1%"]} >
 
             <Input name='name' value={data.name} onChange={handleChange} className='input'  type='text' placeholder="Enter your name"/>
 
@@ -312,18 +312,18 @@ const SignupPage = ()=>{
 
             <Input name="password" value={data.password} onChange={handleChange} className='input'  type='password' placeholder="Enter your password"/>  
 
-            <Checkbox name="checkbox" onChange={handleChange} value={data.checkbox}>Agree to Terms & Condition</Checkbox>
-
             <p>Country/Region</p>
-
-            <Select onChange={handleChange}  name="country" width="30%" height="40%" defaultValue="IN" placeholder='Select country'>
+            <Select onChange={handleChange}  name="country" m={'auto'} width={['70%','80%','100%',"100%"]} height="40%" defaultValue="IN" placeholder='Select country'>
                 {
                      countries.map((ele,i)=><option key={i} className='option' value={ele.name}>{ele.name}</option>)
                  }
            </Select>
+            <Checkbox name="checkbox" onChange={handleChange} value={data.checkbox}>Agree to Terms & Condition</Checkbox>
+
+
       
         </FormControl>
-        <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
+        <Button mt={['3','3','4','4']} colorScheme='teal' isLoading={isSubmitting} type='submit'>
         Submit
       </Button>
 

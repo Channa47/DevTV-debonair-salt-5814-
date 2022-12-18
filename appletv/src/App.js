@@ -10,7 +10,7 @@ import Slider from './Componenets/Slider';
 import { HomePage } from './Pages/HomePage';
 
 
-import Additem from './Pages/Additem';
+// import Additem from './Pages/Additem';
 
 // import Additem from './Pages/Additem';
 import ManageItems from "./Pages/ManageItemsPage"
@@ -26,6 +26,8 @@ function App() {
 
 
       <MainRoutes/>
+      <MainNavbar/>
+      <HomePage/>
    
 
   

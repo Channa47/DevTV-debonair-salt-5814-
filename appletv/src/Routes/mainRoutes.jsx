@@ -6,7 +6,7 @@ import { HomePage } from '../Pages/HomePage'
 // import { SignupPage } from '../Pages/Signup'
 // import SinglePage from "../Pages/SP_pages/SinglePage";
 // import SearchBoxPage from "../Pages/SP_pages/SearchBoxPage";
-import { SignupPage } from '../Pages/Signup';
+// import { SignupPage } from '../Pages/Signup';
 
 import { SignupPage } from '../Pages/Signup'
 import ManageItems from "../Pages/ManageItemsPage"
