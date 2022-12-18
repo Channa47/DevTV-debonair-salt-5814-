@@ -21,6 +21,7 @@ import {
   PopoverAnchor,
 } from '@chakra-ui/react'
 import MainNavbar from '../Componenets/MainNavbar';
+import { Link,useNavigate } from 'react-router-dom';
 
 
 // importr {GetDataASAdmin}
@@ -30,6 +31,7 @@ function ManageItems() {
   const [deletitem, setdeletitem] = useState(false);
   const store = useSelector(s=>s.ItemManageReducer);
   const [url,setUrl] = useState("");
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const toast = useToast()
   // console.log(store);
@@ -137,8 +139,13 @@ function ManageItems() {
         )
       })
      }
+
     </div>
+
       }
+ <button onClick={localStorage.setItem("admintoken",JSON.stringify(null))}>Log out</button>
+      <Link to="/banusers"><div>Bann user</div></Link>
+      <Link to="/removeban"><div>Unbann user</div></Link>
     </>
   )
 }

@@ -2,11 +2,13 @@ import React, {  useEffect, useState } from 'react'
 import styled from "styled-components";
 import ShowallData from './ShowallData';
 import img1 from "./Image/brand.png.png"; 
+import { useNavigate } from 'react-router-dom';
 // import axios from "axios";
 const SearchBox = ({queryHandler, suggestions}) => {
   
     const [ input, setInput] = useState("");
     const [value, setValue] = useState([]);
+    const navigate = useNavigate()
     // console.log(value)
   const handleInputChange = (e) =>{
     setInput(e.target.value);
@@ -33,16 +35,20 @@ let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResu
     return (
       <div>
         <NavbarSection>
-          <img src={img1} alt="avtar" width='100px' height='80px'/>
+          <img src={img1} alt="avtar" width='100px' onClick={()=>navigate("/")} height='80px'/>
 <Wrapper>
         <SearchBarWrappr>
-          <Input value={input} placeholder="Search..." onChange={handleInputChange}/>
+          <Input bg="white" value={input} placeholder="Search..." onChange={handleInputChange}/>
           <button onClick={()=>handledata(input)}><i class='bx bx-search' ></i></button>
         </SearchBarWrappr>
         <SugestionsBox>
         {
             suggestions.map((item, index)=>{
-                return <div key={index}>{item.name}</div>
+                return <div key={index}>
+                  <div  onClick={()=>navigate(`/singlepage/${item.id}`)} style={{cursor:"pointer"}}>
+                  {item.name}
+                  </div>
+                  </div>
             })
         }
         </SugestionsBox>
@@ -91,7 +97,7 @@ const Showdata = styled.div`
 margin-top:100px;
 `;
 const SugestionsBox = styled.div`
-border: 1px solid black;
+
 max-height: 130px;
 overflow: auto;
 background-color: white;
@@ -102,7 +108,7 @@ float:right;
     padding-left: 20px;
 }
  @media screen and (max-width: 280px){
-      border: 1px solid black;
+   
 max-height: 90px;
 overflow: auto;
 background-color: white;
@@ -117,7 +123,7 @@ float:right;
 
 const SearchBarWrappr = styled.div`
 display : flex;
-border: 1px solid black;
+border: 1px solid white;
 
 `;
 const Input = styled.input`
@@ -133,19 +139,19 @@ background-color: black;
 
 `
 const Wrapper= styled.div `
-border : 1px solid white;
+
 max-width:300px;
 margin:auto;
     margin-right: 30px;
 @media screen and (max-width: 375px){
-border : 1px solid white;
+
 max-width:200px;
 margin:auto;
  
  
     }
     @media screen and (max-width: 280px){
-      border : 1px solid white;
+    
 max-width:80px;
 margin:auto;
    

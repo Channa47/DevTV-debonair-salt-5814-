@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router"
 
-
-export const PrivaterouteAdmin = ({children})=>{
+import { Navigate } from "react-router"
+export const PrivaterouteUser = ({children})=>{
+  const navigate = useNavigate()
     let token = JSON.parse(localStorage.getItem("token"))
     // let navigate = useNavigate()
     if(token){
@@ -10,8 +11,8 @@ export const PrivaterouteAdmin = ({children})=>{
         </>
     }
   else{
-    alert("you are not authorised")
-      
+    return <Navigate to="/login"/>
+    
   }
        
 }

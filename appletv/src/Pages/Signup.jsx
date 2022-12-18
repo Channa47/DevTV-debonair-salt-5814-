@@ -7,6 +7,7 @@ import { getDataSignup } from '../redux/auth/getsignup/getsignupaction'
 import { postDatasignup } from '../redux/signup/signupaction'
 import MainNavbar from '../Componenets/MainNavbar'
 import { useNavigate } from 'react-router-dom'
+import { useToast } from '@chakra-ui/react'
 const SignupPage = ()=>{
     const init = {
         name:"",
@@ -23,6 +24,7 @@ const SignupPage = ()=>{
   const userdata = useSelector(store=>store.getSignupreducer)
   const navigate = useNavigate()
   console.log(userdata)
+  const toast = useToast();
   const {
     handleSubmit,
     formState: { errors, isSubmitting },
@@ -290,49 +292,78 @@ const SignupPage = ()=>{
             setData({...data, [name]:val})
       }
       const onSubmit = (data)=>{
-        let payload = {...data,token:data.email}
-         let getuseremai = userdata.userdata.filter(ele=>ele.email===payload.email)
-         if(getuseremai.length>0){
-          alert("this account already exist")
-         }
-         else{
-           dispatch(postDatasignup(payload))
-           alert("Success");
-           navigate("/login");
-         }
-        // setData("")
+        if(data.email=="" || data.password=="" || data.name==""||data.username==""||data.checkbox==false){
+          toast({
+            title: 'Failed',
+            status: 'warning',
+            description: "input should not be empty",
+            duration: 9000,
+            isClosable: true,
+          })
+        }
+        else{
+          let payload = {...data,token:data.email}
+          let getuseremai = userdata.userdata.filter(ele=>ele.email===payload.email)
+          if(getuseremai.length>0){
+           toast({
+             title: 'Failed',
+             status: 'warning',
+             description:"this account already exist",
+             duration: 9000,
+             isClosable: true,
+           })
+          }
+          else{
+            dispatch(postDatasignup(payload))
+            toast({
+             title: 'Account created.',
+             description: "We've created your account for you.",
+             status: 'success',
+             duration: 9000,
+             isClosable: true,
+           })
+            setData("")
+            navigate("/login");
+          }
+        }
+       
+        //
         // console.log(payload)
         
       }
    return (<>
        <MainNavbar/>
+       <div className='form_div'>
       <form   className='form' onSubmit={handleSubmit(()=>onSubmit(data))}>
-        <FormControl width="50%" height="80vh" paddingTop="3%" m="auto" marginTop="1%" >
+      <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Login to DEV TV+</h1>
+        <FormControl>
+             
+            <Input _placeholder={{color:"black"}} name='name' value={data.name} onChange={handleChange} className='input' color="black"  type='text' placeholder="Enter your name"/>
 
-            <Input name='name' value={data.name} onChange={handleChange} className='input'  type='text' placeholder="Enter your name"/>
+            <Input _placeholder={{color:"black"}} name="email" value={data.email} onChange={handleChange} className='input'  type='email' placeholder="enter your email" />
 
-            <Input name="email" value={data.email} onChange={handleChange} className='input'  type='email' placeholder="enter your email" />
+            <Input _placeholder={{color:"black"}} name="username" value={data.username} onChange={handleChange} className='input'  type='text' placeholder="Enter your username"/>
 
-            <Input name="username" value={data.username} onChange={handleChange} className='input'  type='text' placeholder="Enter your username"/>
+            <Input _placeholder={{color:"black"}} name="password" value={data.password} onChange={handleChange} className='input'  type='password' placeholder="Enter your password"/>  
+       
+            <Checkbox name="checkbox" onChange={handleChange}  marginTop="5%"  value={data.checkbox}>Agree to Terms & Condition</Checkbox>
 
-            <Input name="password" value={data.password} onChange={handleChange} className='input'  type='password' placeholder="Enter your password"/>  
-
-            <Checkbox name="checkbox" onChange={handleChange} value={data.checkbox}>Agree to Terms & Condition</Checkbox>
-
-            <p>Country/Region</p>
-
-            <Select onChange={handleChange}  name="country" width="30%" height="40%" defaultValue="IN" placeholder='Select country'>
+       
+         
+            <Select margin="auto" marginTop="2%" onChange={handleChange}  name="country" width="30%" height="40%" defaultValue="IN" placeholder='Select country'>
                 {
                      countries.map((ele,i)=><option key={i} className='option' value={ele.name}>{ele.name}</option>)
                  }
            </Select>
-      
+         
         </FormControl>
-        <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
+        <br/>
+        <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit' className='btn'>
         Submit
       </Button>
 
      </form>
+     </div>
 </>
    )      
 

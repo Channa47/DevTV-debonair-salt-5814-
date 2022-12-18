@@ -99,7 +99,9 @@ import {
                     <PopoverCloseButton />
                     <PopoverHeader color={"green"}>Your Currently logged in</PopoverHeader>
                     <PopoverBody>
-                      <button onClick={()=>{localStorage.setItem("token",JSON.stringify(null));navigate("/")}} style={{backgroundColor:"red" ,borderRadius:"5px",width:"80%"}}>LogOut</button>
+                      <button onClick={()=>{localStorage.setItem("token",JSON.stringify(null));
+                      localStorage.setItem("admintoken",JSON.stringify(null));navigate("/")
+                    }} style={{backgroundColor:"red" ,borderRadius:"5px",width:"80%"}}>LogOut</button>
                     </PopoverBody>
                   </PopoverContent>
                 </Popover>

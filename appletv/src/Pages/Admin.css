@@ -1,15 +1,12 @@
 
-html body{
-    max-width: 100%;
-    overflow-x: hidden;
-}.form_div{
+.form_div2{
     background-color: grey;
-    padding-top: 1%;
+    padding-top: 3%;
     height: 100vh;
     padding-bottom: 3%;
     align-items: center;
 }
-.form{
+.form2{
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     border-radius: 5%;
     width: 50%;
@@ -18,19 +15,35 @@ html body{
    text-align: center;
    padding: 5%;
 }
+
 .input{
     margin-top: 5%;
 }
 
+.select{
+    height: 30%;
+    width: 30%;
+}
+.option{
+    width: 30%;
+    height: 30%;
+}
+.submit{
+    width: 25%;
+    border: 1px solid red;
+}
+
 @media screen and (max-width : 900px){
-    .form{
+    .form2{
         width: 65%;
+        margin-top: 40%;
     }
 }
 
 @media screen and (max-width : 500px){
-    .form{
+    .form2{
         width: 75%;
+       margin-top: 40%;
     }
 }
 

@@ -23,7 +23,7 @@ export const  addbanuser = (data)=>(dispatch)=>{
 
 export const  removebanuser = (data)=>(dispatch)=>{
     dispatch({type:types.REMOVEBANNREQUEST})
-    return axios.delete("https://appletvusers.onrender.com/banned",data)
+    return axios.delete(`https://appletvusers.onrender.com/banned/${data}`)
     .then(r=>dispatch({type:types.REMOVEBANNSUCCESS,payload:r.data}))
     .catch(e=>dispatch({type:types.REMOVEBANNFAILURE}))
 }

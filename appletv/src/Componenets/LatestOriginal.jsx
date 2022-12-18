@@ -160,9 +160,9 @@ export default function LatestOriginal() {
               <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'} lineHeight={['1.2']}  h={'auto'} w={'90%'} _hover={{cursor:'pointer'}}>
                 
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-                  <Text fontSize={'14px'}  textAlign="start" color={'gray.500'}>{item.genre}</Text>
+                  <Text fontSize={'14px'}  textAlign="start" color={'black'}>{item.genre}</Text>
                   <Text fontSize={'16px'}  textAlign="start" color={'black'}>{item.name}</Text>
-                  <Text  fontSize={'14px'}  textAlign="start" color={'grey'}>{item.description}</Text>
+                  <Text  fontSize={'14px'}  textAlign="start" color={'black'}>{item.description}</Text>
               </Box>
           )
           }
@@ -231,9 +231,9 @@ export default function LatestOriginal() {
               <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'} lineHeight={['1.2']}  h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                 
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-                  <Text fontSize={'15px'}  textAlign="start" color={'gray.500'}>{item.genre}</Text>
+                  <Text fontSize={'15px'}  textAlign="start" color={'black'}>{item.genre}</Text>
                   <Text fontSize={'18px'}  textAlign="start" color={'black'}>{item.name}</Text>
-                  <Text  fontSize={'14px'}  textAlign="start" color={'grey'}>{item.description}</Text>
+                  <Text  fontSize={'14px'}  textAlign="start" color={'black'}>{item.description}</Text>
   
               </Box>
           )
@@ -303,9 +303,9 @@ export default function LatestOriginal() {
               <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                 
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-                  <Text fontSize={'15px'}  textAlign="start" color={'gray.500'}>{item.genre}</Text>
+                  <Text fontSize={'15px'}  textAlign="start" color={'black'}>{item.genre}</Text>
                   <Text fontSize={'18px'}  textAlign="start" color={'black'}>{item.name}</Text>
-                  <Text  fontSize={'14px'}  textAlign="start" color={'grey'}>{item.description}</Text>
+                  <Text  fontSize={'14px'}  textAlign="start" color={'black'}>{item.description}</Text>
   
               </Box>
           )
@@ -374,9 +374,9 @@ export default function LatestOriginal() {
             return  (
               <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}} >
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-                  <Text fontSize={'15px'}  textAlign="start" color={'gray.500'}>{item.genre}</Text>
+                  <Text fontSize={'15px'}  textAlign="start" color={'black'}>{item.genre}</Text>
                   <Text fontSize={'18px'}  textAlign="start" color={'black'}>{item.name}</Text>
-                  <Text  fontSize={'14px'}  textAlign="start" color={'grey'}>{item.description}</Text>
+                  <Text  fontSize={'14px'}  textAlign="start" color={'black'}>{item.description}</Text>
               </Box>
           )
           }
