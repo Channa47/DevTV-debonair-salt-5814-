@@ -2,7 +2,8 @@
 import {
     FormControl,
     Input,
-    Button
+    Button,
+    Spinner
 } from '@chakra-ui/react'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
@@ -43,11 +44,21 @@ const AdminPage = () => {
         }
 
     }
+    
+  if(isloading){
+    return <>
+    
+    <form className='form'>
+        <Spinner className='spinner' thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl'/>
+        </form>
+    </>
+  }
+
 
     return (<>
-        <form onSubmit={handleSubmit(() => onSubmit(data))}>
+        <form className='form' onSubmit={handleSubmit(() => onSubmit(data))}>
             <h2>Admin's Login</h2>
-            <FormControl className='form' width="50%" height="90vh" paddingTop="3%" m="auto" marginTop="1%" paddingLeft="7%" paddingRight="7%">
+            <FormControl width="100%" height="80%"  m="auto" marginTop="1%">
 
                 <Input name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
 

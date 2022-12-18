@@ -2,7 +2,8 @@
 import {
     FormControl,
     Input,
-    Button
+    Button,
+    Spinner
 } from '@chakra-ui/react'
 import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
@@ -23,6 +24,7 @@ const Bannuseraccount = () => {
     const dispatch = useDispatch()
     const banneduserlist = useSelector(store=>store.getbannreducer.banneduserlist)
     console.log(banneduserlist)
+    const isloading = useSelector(store=>store.getbannreducer.isloading)
     const handleChange = useCallback((e) => {
         const { name, value } = e.target
         setData({ ...data, [name]: value })
@@ -36,11 +38,20 @@ const Bannuseraccount = () => {
         
     }
 
+    if(isloading){
+        return <>
+        
+        <form className='form'>
+            <Spinner className='spinner' thickness='4px' speed='1s' emptyColor='gray.200' color='green.500' size='xl'/>
+            </form>
+        </>
+      }
+    
  
     return (<>
-        <form onSubmit={handleSubmit(() => onSubmit(data))}>
+        <form className='form' onSubmit={handleSubmit(() => onSubmit(data))}>
             <h2>Bann account</h2>
-            <FormControl className='form' width="50%" height="90vh" paddingTop="3%" m="auto" marginTop="1%" paddingLeft="7%" paddingRight="7%">
+            <FormControl width="100%" height="80%"  m="auto" marginTop="1%">
 
                 <Input isRequired name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
 

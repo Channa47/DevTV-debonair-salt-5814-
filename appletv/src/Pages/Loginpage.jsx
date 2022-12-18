@@ -1,7 +1,8 @@
 import {
   FormControl,
   Input,
-  Button
+  Button,
+  Spinner
 } from '@chakra-ui/react'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
@@ -36,6 +37,7 @@ const LoginPage = () => {
   console.log(userdata)
   const banneduserdata = useSelector(store => store.getbannreducer.banneduserlist)
   console.log(banneduserdata)
+  const isloading = useSelector(store => store.getSignupreducer.isloading)
   const handleChange = (e) => {
     const { name, value } = e.target
     setData({ ...data, [name]: value })
@@ -58,10 +60,20 @@ const LoginPage = () => {
 
   }
 
+  if(isloading){
+    return <>
+    
+    <form className='form'>
+        <Spinner className='spinner' thickness='4px' speed='0.65s' emptyColor='gray.200' color='gree.500' size='xl'/>
+        </form>
+    </>
+  }
+
 
   return (<>
     <form className='form' onSubmit={handleSubmit(() => onSubmit(data))}>
-      <FormControl width="80%" height="40%" paddingTop="3%" m="auto" marginTop="1%" paddingLeft="7%" paddingRight="7%">
+      <h1>Login here please</h1>
+      <FormControl width="100%" height="80%"  m="auto" marginTop="1%">
 
         <Input name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
 

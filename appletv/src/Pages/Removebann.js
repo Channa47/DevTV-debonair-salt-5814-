@@ -2,7 +2,8 @@
 import {
     FormControl,
     Input,
-    Button
+    Button,
+    Spinner
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
@@ -40,10 +41,21 @@ const Removebannannaccount = () => {
     }
     const banneduserlist = useSelector(store=>store.getbannreducer.banneduserlist)
     console.log(banneduserlist)
+    const isloading = useSelector(store=>store.getbannreducer.isloading)
+    
+  if(isloading){
+    return <>
+    
+    <form className='form'>
+        <Spinner className='spinner' thickness='4px' speed='0.65s' emptyColor='gray.200' color='green.500' size='xl'/>
+        </form>
+    </>
+  }
+
     return (<>
-        <form onSubmit={handleSubmit(() => onSubmit(data))}>
+        <form className='form' onSubmit={handleSubmit(() => onSubmit(data))}>
             <h2>Remove bann </h2>
-            <FormControl className='form' width="50%" height="90vh" paddingTop="3%" m="auto" marginTop="1%" paddingLeft="7%" paddingRight="7%">
+            <FormControl width="100%" height="80%"  m="auto" marginTop="1%">
                 <Input name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
             </FormControl>
             <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
