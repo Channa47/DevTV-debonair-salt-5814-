@@ -6,11 +6,7 @@ const initstate = {
     isloading:false,
     isError:false,
     userdata:[],
-    
 }
-
-
-
 
 export const Signupreducer = (state = initstate,action)=>{
      

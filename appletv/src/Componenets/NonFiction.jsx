@@ -9,12 +9,12 @@ import Slider from 'react-slick';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetDataASAdmin } from '../redux/app/adminadditems/action';
+import { useNavigate } from 'react-router-dom';
+
 
 // Settings for the slider
 const settings = {
-  
   arrows: true,
- 
   infinite: true,
   autoplay: true,
   speed: 500,
@@ -34,9 +34,7 @@ const settingsForsmallTablet = {
   slidesToScroll: 2,
 };
 const settingsForMobile = {
-  
   arrows: true,
- 
   infinite: true,
   autoplay: true,
   speed: 500,
@@ -71,6 +69,8 @@ export default function NonFiction() {
   const [cards,setCards]=useState([])
   const [loading,setLoading]=useState(false)
   const [error,setError]=useState(false)
+
+  const navigate = useNavigate();
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
@@ -171,7 +171,7 @@ export default function NonFiction() {
         {cards.map((item, index) => {
           if(index>9){
             return (
-              <Box key={item.id} padding={'10px'}      h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}      h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                           <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                       </Box>
                   )
@@ -238,7 +238,7 @@ export default function NonFiction() {
         {cards.map((item, index) =>{
           if(index>9){
            return (
-              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
               </Box>
           )
@@ -300,12 +300,12 @@ export default function NonFiction() {
       </IconButton>
       {/* Slider */}
       
-     <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
+     <Box  width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForsmallTablet} ref={(slider3) => setSlider3(slider3)}>
         {cards.map((item, index) => {
           if(index>9){
            return (
-              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                 
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                  
@@ -370,12 +370,12 @@ export default function NonFiction() {
       </IconButton>
       {/* Slider */}
       
-     <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
+     <Box  width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForMobile} ref={(slider4) => setSlider4(slider4)}>
         {cards.map((item, index) => {
           if(index>9){
             return (
-              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
               </Box>
           )
@@ -383,7 +383,6 @@ export default function NonFiction() {
         })}
       </Slider>
      </Box>
-     
     </Box>
     </Box>
   );

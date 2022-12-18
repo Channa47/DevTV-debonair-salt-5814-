@@ -3,6 +3,7 @@ import { Box, IconButton, Image, Spinner, Text, useBreakpointValue } from '@chak
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
@@ -58,7 +59,7 @@ export default function RedemptionStories() {
   const [slider2,setSlider2]=React.useState()
   const [slider3,setSlider3]=React.useState()
   const [slider4,setSlider4]=React.useState()
-
+  const navigate = useNavigate()
 
   const [cards,setCards]=useState([])
   const [loading,setLoading]=useState(false)
@@ -156,7 +157,7 @@ export default function RedemptionStories() {
      <Box width="90%" display={['none','none','none','block']} borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((item, index) => (
-            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+            <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
               
                 <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                
@@ -222,11 +223,8 @@ export default function RedemptionStories() {
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForTablet} ref={(slider2) => setSlider2(slider2)}>
         {cards.map((item, index) => (
-            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-              
+            <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                 <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
             </Box>
         ))}
       </Slider>
@@ -288,11 +286,8 @@ export default function RedemptionStories() {
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForsmallTablet} ref={(slider3) => setSlider3(slider3)}>
         {cards.map((item, index) => (
-            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-              
+            <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                 <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
             </Box>
         ))}
       </Slider>
@@ -354,7 +349,7 @@ export default function RedemptionStories() {
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForMobile} ref={(slider4) => setSlider4(slider4)}>
         {cards.map((item, index) => (
-            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+            <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
               
                 <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                

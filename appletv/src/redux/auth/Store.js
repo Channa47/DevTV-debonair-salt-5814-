@@ -10,7 +10,7 @@ import {ItemManageReducer} from "../app/adminadditems/reducer"
 import thunk from "redux-thunk"
 
 
-const rootReducer = combineReducers({getSignupreducer,Loginreducer,Signupreducer,adminreducer,getbannreducer,addbannreducer,removebannreducer})
+const rootReducer = combineReducers({getSignupreducer,Loginreducer,Signupreducer,adminreducer,getbannreducer,addbannreducer,removebannreducer,ItemManageReducer})
 
 
 export const store = legacy_createStore(rootReducer,applyMiddleware(thunk))

@@ -21,8 +21,7 @@ export const Loginreducer = (state = initlogin,action)=>{
                 ...state,
                 isError:false,
                 isloading:false,
-                token:action.payload
-                
+                token:action.payload 
             }
          }
          case types.GETLOGINDATAFALIURE:{

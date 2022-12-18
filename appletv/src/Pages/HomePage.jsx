@@ -15,6 +15,7 @@ import Footer from "../Componenets/Footer";
 import NonFiction from "../Componenets/NonFiction";
 
 
+
 export const HomePage=()=>{
     return (
         <div>
@@ -22,8 +23,7 @@ export const HomePage=()=>{
             
 
             {/* <Navbar/> */}
-            {/* <MainNavbar/> */}
-
+            <MainNavbar/>
             <Slider/>
             <WatchPremierForFree/>
             <MostPopularNow/>
@@ -32,7 +32,7 @@ export const HomePage=()=>{
             <LatestOriginal/>
             <RedemptionStories/>
             <AllDramaSeries/>
-            <AllComedySeries/>
+            <AllComedySeries />
             <NonFiction/>
             <AppleFAQ/>
             <Footer/>

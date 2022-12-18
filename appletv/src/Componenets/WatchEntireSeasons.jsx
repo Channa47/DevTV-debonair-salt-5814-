@@ -7,6 +7,7 @@ import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 // Settings for the slider
 const settings = {
@@ -63,7 +64,7 @@ export default function WatchEntireSeasons() {
   const [cards,setCards]=useState([])
   const [loading,setLoading]=useState(false)
   const [error,setError]=useState(false)
-
+  const navigate = useNavigate()
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
   const top = useBreakpointValue({ base: '50%', md: '50%' });

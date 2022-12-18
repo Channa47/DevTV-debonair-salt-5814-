@@ -22,7 +22,8 @@ import {
   } from "@chakra-ui/react";
 
   import { useNavigate } from "react-router-dom";
-  import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+  import { CloseIcon, HamburgerIcon,AtSignIcon,CircleIcon,CheckIcon } from "@chakra-ui/icons";
+  
   import {Link} from "react-router-dom"
   import { SignupPage } from "../Pages/Signup";
 
@@ -32,6 +33,8 @@ import {
     const handChange = (e) =>{
         localStorage.setItem("search",JSON.stringify(e.target.value))
     }
+    let admintoken = JSON.parse(localStorage.getItem("admintoken")) || null
+    let usertoken = JSON.parse(localStorage.getItem("token")) || null
     const { isOpen, onOpen, onClose } = useDisclosure();
     const navigate = useNavigate();
     return (
@@ -79,17 +82,19 @@ import {
                 fontWeight="500"
                 fontSize="16px"
                 mr={10}
-              >
-                <Link to="/home"><input onChange={(e)=>handChange(e)} style={{border:"2px solid white" , backgroundColor:"black", color:"white"}} placeholder="&#128270; Search"  type="text" /></Link>
-                <Button border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Sign Up</Button>
+              >  
+                {admintoken && 
+                <Button onClick={()=>navigate("/manageitems")} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Sign Up</Button>}
+                <Link to="/searchboxpage"><input onChange={(e)=>handChange(e)} style={{border:"2px solid white" , backgroundColor:"black", color:"white"}} placeholder="&#128270; Search"  type="text" /></Link>
+                <Button onClick={()=>navigate("/login")} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">{usertoken?<><CheckIcon  color='green.500' />{usertoken}</>:"Sign up"}</Button>
                 {/* <Popover>
-    <PopoverTrigger>
-    <Button border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Sign Up</Button>
-    </PopoverTrigger>
-    <PopoverContent m={"100%"} justifyContent="center">
-    <PopoverBody> <SignupPage/>    </PopoverBody>
-    </PopoverContent>
-    </Popover> */}
+                  <PopoverTrigger>
+                  <Button border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Sign Up</Button>
+                  </PopoverTrigger>
+                  <PopoverContent m={"100%"} justifyContent="center">
+                  <PopoverBody> <SignupPage/>    </PopoverBody>
+                  </PopoverContent>
+                  </Popover> */}
               </HStack>
             </Flex>
           </Flex>
@@ -106,7 +111,7 @@ import {
             >
               <VStack spacing={14} mt="20">
                 <Link to="/home"><input onChange={(e)=>handChange(e)} style={{border:"2px solid white" , backgroundColor:"black", color:"white"}} placeholder="&#128270; Search"  type="text" /></Link>
-                <Link to="/signup"><Button border={"none"} _hover={{background:"blue"}} background={"blue"} color="white">Sign Up</Button></Link>
+                <Link to="/login"><Button border={"none"} _hover={{background:"blue"}} background={"blue"} color="white">Sign Up</Button></Link>
               </VStack>
             </VStack>
           ) : null}

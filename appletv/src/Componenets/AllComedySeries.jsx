@@ -7,6 +7,8 @@ import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 // Settings for the slider
 const settings = {
@@ -63,6 +65,7 @@ export default function AllComedySeries() {
   const [cards,setCards]=useState([])
   const [loading,setLoading]=useState(false)
   const [error,setError]=useState(false)
+  const navigate = useNavigate()
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
@@ -157,7 +160,7 @@ export default function AllComedySeries() {
         {cards.map((item, index) => {
             if(index>7){
                 return (
-                    <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                    <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                       
                         <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                        
@@ -227,7 +230,7 @@ export default function AllComedySeries() {
         {cards.map((item, index) => {
             if(index>7){
                 return (
-                    <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                    <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                       
                         <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                        
@@ -297,7 +300,7 @@ export default function AllComedySeries() {
         {cards.map((item, index) => {
             if(index>7){
                 return (
-                    <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                    <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                       
                         <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                        
@@ -367,7 +370,7 @@ export default function AllComedySeries() {
         {cards.map((item, index) => {
             if(index>7){
                 return (
-                    <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                    <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                       
                         <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                        

@@ -20,6 +20,7 @@ import {
   PopoverCloseButton,
   PopoverAnchor,
 } from '@chakra-ui/react'
+import MainNavbar from '../Componenets/MainNavbar';
 
 
 // importr {GetDataASAdmin}
@@ -35,7 +36,9 @@ function ManageItems() {
 
   useEffect(()=>{
     dispatch(GetDataASAdmin())
-  },[dispatch,store.Data.length])
+  },[dispatch])
+
+  console.log("store",store);
 
   const handleChange = (e) => {
     const val = e.target.value
@@ -71,7 +74,7 @@ function ManageItems() {
   }
 
 
-  // console.log(store.Data)
+  console.log(store.Data)
    if(store.isLoading){
     return  (
        <div style={{justifyContent:"center",marginTop:"10%"}}>
@@ -81,6 +84,7 @@ function ManageItems() {
   }
   return (
     <>
+      <MainNavbar/>
       <div >
       <div style={{marginTop:"20px"}}>
         <h1 style={{fontSize:"50px"}}>ITEM COUNT IS {store.Data.length}</h1>
@@ -127,9 +131,6 @@ function ManageItems() {
                   </PopoverContent>
                 </Popover>
                {/*  */}
-
-
-
           </div>
           <br />
           </div>

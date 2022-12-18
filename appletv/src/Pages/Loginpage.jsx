@@ -12,13 +12,13 @@ import { useForm } from 'react-hook-form'
 import { getDataSignup } from '../redux/auth/getsignup/getsignupaction'
 import { json } from 'react-router'
 import { getbanuser } from '../redux/auth/admin/edituseraction'
+import MainNavbar from '../Componenets/MainNavbar'
 
 const LoginPage = () => {
   const init = {
     email: "",
     password: "",
   }
-
   const [data, setData] = useState(init)
 
   const { handleSubmit, formState: { errors, isSubmitting }, } = useForm()
@@ -60,6 +60,7 @@ const LoginPage = () => {
 
 
   return (<>
+    <MainNavbar/>
     <form className='form' onSubmit={handleSubmit(() => onSubmit(data))}>
       <FormControl width="80%" height="40%" paddingTop="3%" m="auto" marginTop="1%" paddingLeft="7%" paddingRight="7%">
 
@@ -71,7 +72,6 @@ const LoginPage = () => {
       <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
         Submit
       </Button>
-
     </form>
   </>
   )

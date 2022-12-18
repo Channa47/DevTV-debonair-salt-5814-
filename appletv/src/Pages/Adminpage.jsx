@@ -18,7 +18,6 @@ const AdminPage = () => {
         password: "",
     }
     const [data, setData] = useState(init)
-    const admin = useSelector(s=>s.adminreducer.admindata)
 
     const { handleSubmit, formState: { errors, isSubmitting }, } = useForm()
     const dispatch = useDispatch()
@@ -42,7 +41,6 @@ const AdminPage = () => {
         else {
             alert("you are not an admin")
         }
-
     }
 
     return (<>

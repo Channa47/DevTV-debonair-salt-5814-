@@ -6,11 +6,7 @@ const initstate = {
     
 }
 
-
-
-
 export const getSignupreducer = (state = initstate,action)=>{
-     
     switch(action.type){
          case types.GETUSERDATAREQUEST:{
             return{

@@ -5,6 +5,8 @@ import "./Signup.css"
 import { useForm } from 'react-hook-form'
 import { getDataSignup } from '../redux/auth/getsignup/getsignupaction'
 import { postDatasignup } from '../redux/signup/signupaction'
+import MainNavbar from '../Componenets/MainNavbar'
+import { useNavigate } from 'react-router-dom'
 const SignupPage = ()=>{
     const init = {
         name:"",
@@ -19,6 +21,7 @@ const SignupPage = ()=>{
 
   const dispatch = useDispatch()
   const userdata = useSelector(store=>store.getSignupreducer)
+  const navigate = useNavigate()
   console.log(userdata)
   const {
     handleSubmit,
@@ -288,19 +291,21 @@ const SignupPage = ()=>{
       }
       const onSubmit = (data)=>{
         let payload = {...data,token:data.email}
-        
          let getuseremai = userdata.userdata.filter(ele=>ele.email===payload.email)
          if(getuseremai.length>0){
           alert("this account already exist")
          }
          else{
            dispatch(postDatasignup(payload))
+           alert("Success");
+           navigate("/login");
          }
+        // setData("")
+        // console.log(payload)
         
-        setData("")
       }
-
    return (<>
+       <MainNavbar/>
       <form   className='form' onSubmit={handleSubmit(()=>onSubmit(data))}>
         <FormControl width="50%" height="80vh" paddingTop="3%" m="auto" marginTop="1%" >
 

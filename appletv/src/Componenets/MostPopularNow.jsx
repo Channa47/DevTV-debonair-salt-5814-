@@ -3,6 +3,7 @@ import { Box, IconButton, Image, Spinner, Text, useBreakpointValue } from '@chak
 // Here we have used react-icons package for the icons
 // import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
@@ -67,6 +68,8 @@ export default function WatchPremierForFree() {
   const [cards,setCards]=useState([])
   const [loading,setLoading]=useState(false)
   const [error,setError]=useState(false)
+
+  const navigate = useNavigate();
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
@@ -160,7 +163,7 @@ export default function WatchPremierForFree() {
         { cards.map((item, index) => {
           if(index>23){
             return (
-              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                 
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                  
@@ -230,7 +233,7 @@ export default function WatchPremierForFree() {
         {cards.map((item, index) => {
           if(index>23){
             return (
-              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                 
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                  
@@ -300,7 +303,7 @@ export default function WatchPremierForFree() {
         {cards.map((item, index) => {
           if(index>23){
             return (
-              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                 
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                  
@@ -370,7 +373,7 @@ export default function WatchPremierForFree() {
         {cards.map((item, index) => {
           if(index>23){
             return (
-              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                 
                   <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                  

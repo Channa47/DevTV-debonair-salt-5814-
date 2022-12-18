@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import styled  from 'styled-components'
 const getData=()=>{
   return axios
-         .get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=avengers&key=AIzaSyAVqqVq-hs1_knVD2RlhKR34oc7n17D90M`)
+        //  .get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=avengers&key=AIzaSyAVqqVq-hs1_knVD2RlhKR34oc7n17D90M`)
+        .get("https://appllehomeserver.onrender.com/movies")
 }
 const ShowallData = ({data}) => {
     
@@ -15,13 +16,21 @@ const ShowallData = ({data}) => {
     //     setSingleValue(el)
     //     // localStorage.setItem("video", JSON.stringify(el))
     // }
+// useEffect(()=>{
+//  getData().then((res)=>{
+//      setSingleValue(res.data.items)
+//  }).catch((e)=>{
+//     console.log(e)
+//  })
+// },[])
+
 useEffect(()=>{
- getData().then((res)=>{
-     setSingleValue(res.data.items)
- }).catch((e)=>{
-    console.log(e)
- })
-},[])
+    getData().then((res)=>{
+        setSingleValue(res.data)
+    }).catch((e)=>{
+       console.log(e)
+    })
+   },[])
    
   return (
     <div>
@@ -30,12 +39,12 @@ useEffect(()=>{
         {data?.map((el)=>{
             return(
                 <div  style={{border:"1px solid teal", overflow:"hidden", borderRadius:"8px", height:"150px"}} key={el.id}>
-                    <Link to={`/searchboxpage/${el.id.videoId}`}>
-                     <img src={el.snippet.thumbnails.medium.url} alt="avtar" />
+                    {/* <Link to={`/searchboxpage/${el.id.videoId}`}> */}
+                    <Link to={`/singlepage/${el.id}`}>
+                     {/* <img src={el.snippet.thumbnails.medium.url} alt="avtar" /> */}
+                     <img src={el.img} alt="avtar" />
                      {/* <h4 >{el.snippet.title}</h4> */}
                     </Link>
-                  
-
                 </div>
             )
         })}
@@ -44,12 +53,12 @@ useEffect(()=>{
         singleValue?.map((el)=>{
           return(
                 <div  style={{border:"1px solid teal", overflow:"hidden", borderRadius:"8px", height:"150px",width:"100%"}} key={el.id}>
-                    <Link to={`/searchboxpage/${el.id.videoId}`}>
-                     <img src={el.snippet.thumbnails.medium.url} alt="avtar" />
+                    {/* <Link to={`/searchboxpage/${el.id.videoId}`}> */}
+                    <Link to={`/singlepage/${el.id}`}>
+                     {/* <img src={el.snippet.thumbnails.medium.url} alt="avtar" /> */}
+                     <img src={el.img} alt="avtar" />
                      {/* <h4 >{el.snippet.title}</h4> */}
                     </Link>
-                  
-
                 </div>
             )
         })

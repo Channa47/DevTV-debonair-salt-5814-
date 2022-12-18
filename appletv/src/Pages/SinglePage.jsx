@@ -13,6 +13,7 @@ import PosterVideo from "../Componenets/SinglePageComponents/PosterVideo";
 import Related from "../Componenets/SinglePageComponents/Related";
 import Trailers from "../Componenets/SinglePageComponents/Trailers";
 import styles from "./SinglePage.module.css"
+import MainNavbar from "../Componenets/MainNavbar";
 
 
 export default function SinglePage(){
@@ -37,6 +38,8 @@ export default function SinglePage(){
     },[])
 
     return(
+     <>
+        <MainNavbar/>
         <div className={styles.SinglePage_main_div}>
 
      <PosterVideo
@@ -95,5 +98,6 @@ export default function SinglePage(){
 
      </Box>
         </div>
+        </>
     )
 }
