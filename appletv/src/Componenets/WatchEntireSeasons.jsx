@@ -16,7 +16,6 @@ const settings = {
   infinite: false,
   autoplay: false,
   speed: 50,
-  
   slidesToShow: 5,
   slidesToScroll: 5,
 };
@@ -52,7 +51,7 @@ const settingsForTablet = {
   slidesToScroll: 3,
 };
 
-export default function WatchPremierForFree() {
+export default function WatchEntireSeasons() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState();
@@ -99,7 +98,7 @@ export default function WatchPremierForFree() {
 
   return (
     <Box pt={['10px']}pb={['10px']}>
-    <Text fontSize={['16px','18px','20px','20px']} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Watch Premieres for Free</Text>
+    <Text fontSize={['16px','18px','20px','20px']} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Watch Entire Seasons</Text>
    {/* For large screen */}
     <Box
     display={['none','none','none','block']}
@@ -126,7 +125,6 @@ export default function WatchPremierForFree() {
       <IconButton 
         aria-label="left-arrow"
         colorScheme={'transparent'}
-       
         borderRadius="full"
         position="absolute"
         left={side}
@@ -134,12 +132,11 @@ export default function WatchPremierForFree() {
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickPrev()}>
-          <IoIosArrowBack size={'40px'} color="pink" />
+          <IoIosArrowBack size={'40px'} color="pink"/>
         {/* <BiLeftArrowAlt /> */}
       </IconButton>
       {/* Right Icon */}
       <IconButton
-      
         aria-label="right-arrow"
         colorScheme="transparent"
         borderRadius="full"
@@ -355,7 +352,7 @@ export default function WatchPremierForFree() {
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForMobile} ref={(slider4) => setSlider4(slider4)}>
         {cards.map((item, index) => (
-            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}} >
               
                 <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
                

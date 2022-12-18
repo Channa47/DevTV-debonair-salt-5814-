@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styled  from 'styled-components'
 const getData=()=>{
   return axios
-         .get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=avengers&key=AIzaSyAcmhi3DMauME8NmnElfH0nhzzwL7rdmRs`)
+         .get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=avengers&key=AIzaSyAVqqVq-hs1_knVD2RlhKR34oc7n17D90M`)
 }
 const ShowallData = ({data}) => {
     
@@ -18,18 +18,21 @@ const ShowallData = ({data}) => {
 useEffect(()=>{
  getData().then((res)=>{
      setSingleValue(res.data.items)
+ }).catch((e)=>{
+    console.log(e)
  })
 },[])
    
   return (
     <div>
+        <h3 style={{float:"left", marginLeft:"30px"}}>Explore popular Series, Films, and More</h3>
  <Wrapper>
         {data?.map((el)=>{
             return(
-                <div  style={{border:"1px solid teal", overflow:"hidden"}} key={el.id}>
+                <div  style={{border:"1px solid teal", overflow:"hidden", borderRadius:"8px", height:"150px"}} key={el.id}>
                     <Link to={`/searchboxpage/${el.id.videoId}`}>
                      <img src={el.snippet.thumbnails.medium.url} alt="avtar" />
-                     <h4 >{el.snippet.title}</h4>
+                     {/* <h4 >{el.snippet.title}</h4> */}
                     </Link>
                   
 
@@ -40,10 +43,10 @@ useEffect(()=>{
         {data.length===0 && 
         singleValue?.map((el)=>{
           return(
-                <div  style={{border:"1px solid teal", overflow:"hidden"}} key={el.id}>
+                <div  style={{border:"1px solid teal", overflow:"hidden", borderRadius:"8px", height:"150px",width:"100%"}} key={el.id}>
                     <Link to={`/searchboxpage/${el.id.videoId}`}>
                      <img src={el.snippet.thumbnails.medium.url} alt="avtar" />
-                     <h4 >{el.snippet.title}</h4>
+                     {/* <h4 >{el.snippet.title}</h4> */}
                     </Link>
                   
 

@@ -1,0 +1,58 @@
+.About_main_box{
+    margin-top: 10px;
+    display: flex;
+    width: 65%;
+    gap: 1%;
+}
+
+.heading_style{
+    font-size: 17px;
+    font-weight: 700;
+    text-align: left;
+
+}
+
+.About_box{
+    width: 50%;
+    border-radius: 15px;
+    background-color: grey;
+    color: white;
+    padding: 15px 11px 15px 11px;
+    text-align: start;
+}
+
+.About_AgeRestriction_box{
+    display: flex;
+}
+
+.PosterDetails_tickmark_img{
+    width: 6%;
+    align-items: baseline;
+}
+
+.About_desc{
+    font-size: 13px;
+}
+
+@media screen and (max-width : 1080px) {
+    .About_desc{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width : 850px) {
+    .About_main_box{
+        width: 80%;
+    }
+
+    .About_box{
+        padding: 13px 11px 12px 11px;
+        text-align: start;
+    }
+}
+
+@media screen and (max-width : 630px) {
+    .About_main_box{
+        width: 100%;
+    }
+}
