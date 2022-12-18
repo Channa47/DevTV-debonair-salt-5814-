@@ -1,0 +1,18 @@
+.Copyright_main_box{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+.Copyright_box1{
+    text-align: start;
+}
+
+.Information_content_box_Value{
+    font-size: 10px;
+}
+
+.Information_content_box_Text{
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 600;
+}
