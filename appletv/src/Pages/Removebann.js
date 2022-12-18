@@ -27,8 +27,7 @@ const Removebannannaccount = () => {
     dispatch(getbanuser(data))
    },[])
 
-   const banneduserlist = useSelector(store=>store.getbannreducer.banneduserlist)
-   console.log(banneduserlist)
+ 
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -37,8 +36,10 @@ const Removebannannaccount = () => {
     const onSubmit = (data) => {
       dispatch(removebanuser(data))
          alert("bann has been removed")
+         dispatch(getbanuser(data))
     }
-
+    const banneduserlist = useSelector(store=>store.getbannreducer.banneduserlist)
+    console.log(banneduserlist)
     return (<>
         <form onSubmit={handleSubmit(() => onSubmit(data))}>
             <h2>Remove bann </h2>
