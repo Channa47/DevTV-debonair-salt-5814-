@@ -25,6 +25,8 @@ const AdminPage = () => {
     useEffect(() => {
         dispatch(getAdmindata())
     }, [])
+    const admin = useSelector(store=>store.adminreducer.admindata)
+            console.log(admin)
 
     const handleChange = (e) => {
         const { name, value } = e.target
