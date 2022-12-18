@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
-
+import { useNavigate } from 'react-router-dom'
 import "./Signup.css"
 import { useForm } from 'react-hook-form'
 
@@ -19,13 +19,14 @@ const AdminPage = () => {
         password: "",
     }
     const [data, setData] = useState(init)
-
+    const navigate = useNavigate()
     const { handleSubmit, formState: { errors, isSubmitting }, } = useForm()
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getAdmindata())
     }, [])
     const admin = useSelector(store=>store.adminreducer.admindata)
+    const isloading = useSelector(store=>store.adminreducer.isloading)
             console.log(admin)
 
     const handleChange = (e) => {
@@ -38,6 +39,7 @@ const AdminPage = () => {
         if (adminuserdata.length > 0) {
             alert(`Very Welcome sir ${adminuserdata[0].name}`)
             localStorage.setItem("admintoken", JSON.stringify(adminuserdata[0].token))
+            navigate()
         }
         else {
             alert("you are not an admin")
@@ -58,7 +60,7 @@ const AdminPage = () => {
     return (<>
         <form className='form' onSubmit={handleSubmit(() => onSubmit(data))}>
             <h2>Admin's Login</h2>
-            <FormControl width="100%" height="80%"  m="auto" marginTop="1%">
+            <FormControl className='form-controll'>
 
                 <Input name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
 

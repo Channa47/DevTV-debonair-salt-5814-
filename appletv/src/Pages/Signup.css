@@ -2,7 +2,7 @@
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     border-radius: 5%;
     width: 50%;
-    height: 90vh;
+    height: 90%;
     margin: auto;
     border: 1px solid red;
     margin-top: 2%;
@@ -37,11 +37,42 @@
 }
 
 @media screen and (min-width: 360px) and (max-width:576px){
-    
+    .form{
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        border-radius: 5%;
+        width: 70%;
+        height: 50vh;
+        margin: auto;
+        border: 1px solid red;
+        margin-top: 2%;
+       text-align: center;
+       padding: 5%;
+    }
 }
 @media screen and (min-width: 576px) and (max-width:768px){
+    .form{
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        border-radius: 5%;
+        width: 70%;
+        height: 50vh;
+        margin: auto;
+        border: 1px solid red;
+        margin-top: 2%;
+       text-align: center;
+       padding: 5%;
+    }
     
 }
 @media screen and (min-width: 768px) and (max-width:992px){
-
+    .form{
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+        border-radius: 5%;
+        width: 60%;
+        height: 60vh;
+        margin: auto;
+        border: 1px solid red;
+        margin-top: 2%;
+       text-align: center;
+       padding: 5%;
+    }
 }

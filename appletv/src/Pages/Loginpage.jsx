@@ -73,7 +73,7 @@ const LoginPage = () => {
   return (<>
     <form className='form' onSubmit={handleSubmit(() => onSubmit(data))}>
       <h1>Login here please</h1>
-      <FormControl width="100%" height="80%"  m="auto" marginTop="1%">
+      <FormControl className='form-controll'>
 
         <Input name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
 
