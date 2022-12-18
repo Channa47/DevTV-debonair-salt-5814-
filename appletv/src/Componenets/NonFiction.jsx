@@ -7,26 +7,29 @@ import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetDataASAdmin } from '../redux/app/adminadditems/action';
 
 // Settings for the slider
 const settings = {
   
   arrows: true,
  
-  infinite: false,
-  autoplay: false,
-  speed: 50,
-  
-  slidesToShow: 5,
+  infinite: true,
+  autoplay: true,
+  speed: 500,
+  autoplaySpeed:2000,
+  slidesToShow: 4,
   slidesToScroll: 5,
 };
 const settingsForsmallTablet = {
   
   arrows: true,
  
-  infinite: false,
-  autoplay: false,
-  speed: 50,
+  infinite: true,
+  autoplay: true,
+  speed: 500,
+  autoplaySpeed:2000,
   slidesToShow: 2,
   slidesToScroll: 2,
 };
@@ -34,9 +37,10 @@ const settingsForMobile = {
   
   arrows: true,
  
-  infinite: false,
-  autoplay: false,
-  speed: 50,
+  infinite: true,
+  autoplay: true,
+  speed: 500,
+  autoplaySpeed:2000,
   slidesToShow: 1,
   slidesToScroll: 1,
 };
@@ -45,20 +49,23 @@ const settingsForTablet = {
   
   arrows: true,
  
-  infinite: false,
-  autoplay: false,
-  speed: 50,
+  infinite: true,
+  autoplay: true,
+  speed: 500,
+  autoplaySpeed:2000,
   slidesToShow: 3,
   slidesToScroll: 3,
 };
 
-export default function WatchPremierForFree() {
+export default function NonFiction() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState();
   const [slider2,setSlider2]=React.useState()
   const [slider3,setSlider3]=React.useState()
   const [slider4,setSlider4]=React.useState()
+//   const dispatch=useDispatch()
+//   const {Data}=useSelector((state)=>state.ItemManageReducer)
 
 
   const [cards,setCards]=useState([])
@@ -70,7 +77,7 @@ export default function WatchPremierForFree() {
   const top = useBreakpointValue({ base: '50%', md: '50%' });
   const side = useBreakpointValue({ base: '10px', md: '10px' });
 
-  ;
+  
   const getData=()=>{
     setLoading(true)
     try {
@@ -86,7 +93,10 @@ export default function WatchPremierForFree() {
   useEffect(()=>{
     getData()
   },[])
-  
+// useEffect(()=>{
+//     dispatch(GetDataASAdmin())
+// },[])
+//   console.log(Data)
   // if(loading){
   //   return <Spinner
   //   thickness='4px'
@@ -98,15 +108,19 @@ export default function WatchPremierForFree() {
   // }
 
   return (
-    <Box pt={['10px']}pb={['10px']}>
-    <Text fontSize={['16px','18px','20px','20px']} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Watch Premieres for Free</Text>
+    <Box pt={['10px']}pb={['10px']} height={['220px','220px','220px','250px']}  >
+    <Text fontSize={['16px','18px','20px','20px']} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Non-Fiction Films & Series</Text>
+    <Text fontSize={['16px']} color={['grey']} w={'90%'} marginLeft='5%' textAlign='left'>Explore fascinating stories that inspire and enlighten.</Text>
+
    {/* For large screen */}
     <Box
     display={['none','none','none','block']}
     marginTop={'50px'}
+    justifyContent="center"
+    alignContent={'center'}
       position={'relative'}
-      height={'170px'}
-      // border={'1px solid black'}
+      height={'200px'}
+    //   border={'1px solid black'}
       margin={'auto'}
       overflow={'hidden'}>
       
@@ -126,7 +140,6 @@ export default function WatchPremierForFree() {
       <IconButton 
         aria-label="left-arrow"
         colorScheme={'transparent'}
-       
         borderRadius="full"
         position="absolute"
         left={side}
@@ -134,12 +147,11 @@ export default function WatchPremierForFree() {
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickPrev()}>
-          <IoIosArrowBack size={'40px'} color="pink" />
+          <IoIosArrowBack size={'40px'} color="pink"/>
         {/* <BiLeftArrowAlt /> */}
       </IconButton>
       {/* Right Icon */}
       <IconButton
-      
         aria-label="right-arrow"
         colorScheme="transparent"
         borderRadius="full"
@@ -154,16 +166,17 @@ export default function WatchPremierForFree() {
       </IconButton>
       {/* Slider */}
       
-     <Box width="90%" display={['none','none','none','block']} borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
+     <Box width="90%" display={['none','none','none','block']}   borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settings} ref={(slider) => setSlider(slider)}>
-        {cards.map((item, index) => (
-            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-              
-                <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
-            </Box>
-        ))}
+        {cards.map((item, index) => {
+          if(index>9){
+            return (
+              <Box key={item.id} padding={'10px'}      h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                          <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+                      </Box>
+                  )
+          }
+        })}
       </Slider>
      </Box>
      
@@ -222,14 +235,15 @@ export default function WatchPremierForFree() {
       
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForTablet} ref={(slider2) => setSlider2(slider2)}>
-        {cards.map((item, index) => (
-            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-              
-                <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
-            </Box>
-        ))}
+        {cards.map((item, index) =>{
+          if(index>9){
+           return (
+              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                  <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+              </Box>
+          )
+          }
+        })}
       </Slider>
      </Box>
      
@@ -288,14 +302,18 @@ export default function WatchPremierForFree() {
       
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForsmallTablet} ref={(slider3) => setSlider3(slider3)}>
-        {cards.map((item, index) => (
-            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-              
-                <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
-            </Box>
-        ))}
+        {cards.map((item, index) => {
+          if(index>9){
+           return (
+              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                
+                  <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+                 
+  
+              </Box>
+          )
+          }
+        })}
       </Slider>
      </Box>
      
@@ -354,14 +372,15 @@ export default function WatchPremierForFree() {
       
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForMobile} ref={(slider4) => setSlider4(slider4)}>
-        {cards.map((item, index) => (
-            <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-              
-                <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
-            </Box>
-        ))}
+        {cards.map((item, index) => {
+          if(index>9){
+            return (
+              <Box key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                  <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+              </Box>
+          )
+          }
+        })}
       </Slider>
      </Box>
      

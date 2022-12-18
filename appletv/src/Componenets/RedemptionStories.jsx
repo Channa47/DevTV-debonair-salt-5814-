@@ -16,7 +16,6 @@ const settings = {
   infinite: false,
   autoplay: false,
   speed: 50,
-  
   slidesToShow: 5,
   slidesToScroll: 5,
 };
@@ -52,7 +51,7 @@ const settingsForTablet = {
   slidesToScroll: 3,
 };
 
-export default function WatchPremierForFree() {
+export default function RedemptionStories() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState();
@@ -86,20 +85,22 @@ export default function WatchPremierForFree() {
   useEffect(()=>{
     getData()
   },[])
-  
-  // if(loading){
-  //   return <Spinner
-  //   thickness='4px'
-  //   speed='0.65s'
-  //   emptyColor='gray.200'
-  //   color='blue.500'
-  //   size='xl'
-  // />
-  // }
+
+//   if(loading){
+//     return <Spinner
+//     thickness='4px'
+//     speed='0.65s'
+//     emptyColor='gray.200'
+//     color='blue.500'
+//     size='xl'
+//   />
+//   }
 
   return (
-    <Box pt={['10px']}pb={['10px']}>
-    <Text fontSize={['16px','18px','20px','20px']} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Watch Premieres for Free</Text>
+    <Box pt={['10px']}pb={['10px']} mt={['40px','40px','10px','0']}>
+    <Text fontSize={['16px','18px','20px','20px']} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Redemption Stories</Text>
+    <Text fontSize={['16px']} color={['grey']} w={'90%'} marginLeft='5%' textAlign='left'>These fasinating heroes are seeking a fresh start.</Text>
+
    {/* For large screen */}
     <Box
     display={['none','none','none','block']}
@@ -126,7 +127,6 @@ export default function WatchPremierForFree() {
       <IconButton 
         aria-label="left-arrow"
         colorScheme={'transparent'}
-       
         borderRadius="full"
         position="absolute"
         left={side}
@@ -134,12 +134,11 @@ export default function WatchPremierForFree() {
         transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickPrev()}>
-          <IoIosArrowBack size={'40px'} color="pink" />
+          <IoIosArrowBack size={'40px'} color="pink"/>
         {/* <BiLeftArrowAlt /> */}
       </IconButton>
       {/* Right Icon */}
       <IconButton
-      
         aria-label="right-arrow"
         colorScheme="transparent"
         borderRadius="full"

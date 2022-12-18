@@ -1,0 +1,37 @@
+.CrewAndCast_div{
+    width : 180px;
+    font-weight: 500;
+}
+
+.CrewAndCast_Image{
+    margin: auto;
+    width: 80%;
+    height:130px;
+    border-radius: 50%;
+}
+
+.heading_style{
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: left;
+
+}
+
+@media screen and (max-width:1280px) {
+    .CrewAndCast_div{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:850px) {
+    .CrewAndCast_div{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .CrewAndCast_div{
+        font-size: 8px;
+    }
+}

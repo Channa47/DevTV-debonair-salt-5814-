@@ -1,0 +1,25 @@
+.SeemoreModal_main_box{
+    background: rgb(68, 68, 68);
+    color: white;
+}
+
+.heading_style{
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.SeemoreModal_list{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.SeemoreModal_span{
+    color: grey;
+    font-weight: 200;
+}
+
+.SeemoreModal_ul{
+    line-height: 30px;
+}
