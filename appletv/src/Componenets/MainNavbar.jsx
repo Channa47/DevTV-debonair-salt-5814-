@@ -21,6 +21,7 @@ import {
     PopoverAnchor,
   } from "@chakra-ui/react";
 
+
   import { useNavigate } from "react-router-dom";
   import { CloseIcon, HamburgerIcon,AtSignIcon,CircleIcon,CheckIcon } from "@chakra-ui/icons";
   
@@ -84,9 +85,28 @@ import {
                 mr={10}
               >  
                 {admintoken && 
-                <Button onClick={()=>navigate("/manageitems")} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Sign Up</Button>}
+                <Button onClick={()=>navigate("/manageitems")} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Admin Page</Button>}
                 <Link to="/searchboxpage"><input onChange={(e)=>handChange(e)} style={{border:"2px solid white" , backgroundColor:"black", color:"white"}} placeholder="&#128270; Search"  type="text" /></Link>
-                <Button onClick={()=>navigate("/login")} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">{usertoken?<><CheckIcon  color='green.500' />{usertoken}</>:"Sign up"}</Button>
+                <Button onClick={()=>navigate("/login")} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">{usertoken?
+                <>
+                {/* <CheckIcon  color='green.500' />{usertoken} */}
+                <Popover closeOnBlur={true}>
+                  <PopoverTrigger>
+                  <button>{usertoken}</button>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverCloseButton />
+                    <PopoverHeader color={"green"}>Your Currently logged in</PopoverHeader>
+                    <PopoverBody>
+                      <button onClick={()=>{localStorage.setItem("token",JSON.stringify(null));navigate("/")}} style={{backgroundColor:"red" ,borderRadius:"5px",width:"80%"}}>LogOut</button>
+                    </PopoverBody>
+                  </PopoverContent>
+                </Popover>
+                </>
+                :"Sign up"
+                }
+                </Button>
                 {/* <Popover>
                   <PopoverTrigger>
                   <Button border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Sign Up</Button>
@@ -110,8 +130,30 @@ import {
               fontSize="16px"
             >
               <VStack spacing={14} mt="20">
+              {admintoken && 
+                <Button onClick={()=>navigate("/manageitems")} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Admin Page</Button>}
                 <Link to="/home"><input onChange={(e)=>handChange(e)} style={{border:"2px solid white" , backgroundColor:"black", color:"white"}} placeholder="&#128270; Search"  type="text" /></Link>
-                <Link to="/login"><Button border={"none"} _hover={{background:"blue"}} background={"blue"} color="white">Sign Up</Button></Link>
+                {/* <Link to="/login"><Button border={"none"} _hover={{background:"blue"}} background={"blue"} color="white">Sign Up</Button></Link> */}
+                <Button onClick={()=>navigate("/login")} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">{usertoken?
+                <>
+                {/* <CheckIcon  color='green.500' />{usertoken} */}
+                <Popover closeOnBlur={true}>
+                  <PopoverTrigger>
+                  <button>{usertoken}</button>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverCloseButton />
+                    <PopoverHeader color={"green"}>Your Currently logged in</PopoverHeader>
+                    <PopoverBody>
+                      <button onClick={()=>{localStorage.setItem("token",JSON.stringify(null));navigate("/")}} style={{backgroundColor:"red" ,borderRadius:"5px",width:"80%"}}>LogOut</button>
+                    </PopoverBody>
+                  </PopoverContent>
+                </Popover>
+                </>
+                :"Sign up"
+                }
+                </Button>
               </VStack>
             </VStack>
           ) : null}

@@ -60,6 +60,5 @@ const AdminPage = () => {
         </form>
     </>
     )
-
 }
 export { AdminPage }
