@@ -9,6 +9,10 @@ import { HomePage } from '../Pages/HomePage'
 import { SignupPage } from '../Pages/Signup';
 
 import { SignupPage } from '../Pages/Signup'
+
+import {Bannuseraccount, Edituseraccount} from "../Pages/Bannuseraccount"
+import { LoginPage } from '../Pages/Loginpage'
+import { Removebannannaccount } from '../Pages/Removebann'
 import ManageItems from "../Pages/ManageItemsPage"
 
 
@@ -16,7 +20,7 @@ function MainRoutes() {
   return (
         <Routes>
             {/* <Route path="/" element={<Home/>}/> */}
-            <Route path='/signup' element={<SignupPage/>}/>
+            <Route path='/signup' element={<Removebannannaccount/>}/>
             {/* <Route path='/signin' element={<Signin/>}/> */}
             {/* <Route path='singleitem/:id' element={<Singlepage/>}/> */}
             {/* <Route path='/searchboxpage' element={<SearchBoxPage/>}/>
