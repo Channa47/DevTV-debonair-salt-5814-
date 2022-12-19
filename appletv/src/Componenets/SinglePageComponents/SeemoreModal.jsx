@@ -6,7 +6,7 @@ export default function SeemoreModal() {
   
     return (
       <Box >
-        <Text color="blue" cursor="pointer" onClick={onOpen}>see more</Text>
+        <Text color="rgb(126, 126, 255)" cursor="pointer" onClick={onOpen}>see more</Text>
   
         <Modal onClose={onClose} isOpen={isOpen} isCentered>
           <ModalOverlay />

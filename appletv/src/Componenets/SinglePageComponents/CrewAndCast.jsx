@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Box, IconButton, Image, Spinner, Text, useBreakpointValue } from '@chakra-ui/react';
+import { Box, IconButton, Image, Link, Spinner, Text, useBreakpointValue } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
 // import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
@@ -8,7 +8,6 @@ import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
 import Slider from 'react-slick';
 import axios from 'axios';
 import styles from "./CrewAndCast.module.css";
-import { useParams } from 'react-router-dom';
 
 // Settings for the slider
 const settings = {
@@ -23,7 +22,7 @@ const settings = {
 }
 
 export default function CrewAndCast() {
-    const {id} = useParams();
+    const param = 30;
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState();
@@ -40,7 +39,7 @@ export default function CrewAndCast() {
   const getData=()=>{
     setLoading(true)
     try {
-      axios.get(`https://movies-appletv.onrender.com/movies/${id}`).then((res)=>{
+      axios.get(`https://movies-appletv.onrender.com/movies/${param}`).then((res)=>{
       setCast(res.data.cast)
       setLoading(false)
     })
@@ -49,6 +48,11 @@ export default function CrewAndCast() {
       setError(true)
     }
   }
+
+  const ShowCrewDetails=(name)=>{
+  window.open(`https://en.wikipedia.org/wiki/${name}`)
+  }
+
   useEffect(()=>{
     getData()
   },[])
@@ -119,11 +123,11 @@ export default function CrewAndCast() {
      <Slider  {...settings} ref={(slider) => setSlider(slider)}>
         {cast.map((item) => (
            
-            <Box className={styles.CrewAndCast_div} key={item.id} > 
+            <Box key={item.id} onClick={()=>ShowCrewDetails(item.name)} className={styles.CrewAndCast_div} > 
               <Box> {item.img.includes("apple")? <Image className={styles.CrewAndCast_Image}  src="https://is3-ssl.mzstatic.com/image/thumb/UAJxYURG7lNf9Et6x4yCBg/550x550bb.webp" />:
                <Image className={styles.CrewAndCast_Image} src={item.img}  />}
               </Box>  
-                <Box><Text>{item.name}</Text></Box>
+                <Box><Text  cursor= 'pointer' >{item.name}</Text></Box>
             </Box>
             
         ))}
