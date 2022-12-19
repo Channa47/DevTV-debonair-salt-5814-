@@ -1,18 +1,15 @@
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
 import { Navigate } from "react-router"
 
 export const PrivaterouteAdmin = ({children})=>{
-  const navigate = useNavigate()
-    let admintoken = JSON.parse(localStorage.getItem("admintoken"))
+  // const [token , settoken] = useState(null)
+  let token = localStorage.getItem("admintoken");
     // let navigate = useNavigate()
-    if(admintoken!==null){
-        return<>
-           {children}
-        </>
+    if(token){
+        return children
     }
   else{
    return <Navigate to="/login"/>
-      
-  }
-       
+  } 
 }

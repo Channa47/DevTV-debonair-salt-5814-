@@ -27,7 +27,7 @@ const AdminPage = () => {
     const navigate = useNavigate()
     useEffect(() => {
         dispatch(getAdmindata())
-    }, [])
+    }, [dispatch])
     const admin = useSelector(store=>store.adminreducer.admindata)
             console.log(admin)
 
@@ -76,9 +76,9 @@ const AdminPage = () => {
         <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Addmin login</h1>
             <FormControl>
 
-                <Input name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
+                <Input _placeholder={{color:"black"}} name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
 
-                <Input name="password" value={data.password} onChange={handleChange} className='input' type='password' placeholder="Enter your password" />
+                <Input _placeholder={{color:"black"}} name="password" value={data.password} onChange={handleChange} className='input' type='password' placeholder="Enter your password" />
 
             </FormControl>
             <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>

@@ -99,16 +99,18 @@ const LoginPage = () => {
     <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Login Page</h1>
       <FormControl>
 
-        <Input name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
+        <Input _placeholder={{color:"black"}} name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
 
-        <Input name="password" value={data.password} onChange={handleChange} className='input' type='password' placeholder="Enter your password" />
+        <Input _placeholder={{color:"black"}} name="password" value={data.password} onChange={handleChange} className='input' type='password' placeholder="Enter your password" />
 
       </FormControl>
       <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
         Submit
       </Button>
-      <Link to="/signup"><h1>Create an account</h1></Link>
-      <Link to="/adminpage"><h1>Admin login</h1></Link>
+      <br />
+       <br/>
+      <Link to="/signup"><h1 style={{color:"aliceblue"}}>Create an account</h1></Link>
+      <Link to="/adminpage"><h1 style={{color:"aliceblue"}}>Login Admin As </h1></Link>
     </form>
     </div>
   </>

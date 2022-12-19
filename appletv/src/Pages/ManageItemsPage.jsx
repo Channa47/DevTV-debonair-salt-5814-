@@ -21,7 +21,7 @@ import {
   PopoverAnchor,
 } from '@chakra-ui/react'
 import MainNavbar from '../Componenets/MainNavbar';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link,Navigate,useNavigate } from 'react-router-dom';
 
 
 // importr {GetDataASAdmin}
@@ -38,7 +38,12 @@ function ManageItems() {
 
   useEffect(()=>{
     dispatch(GetDataASAdmin())
-  },[dispatch])
+  },[dispatch,store.Data.length])
+
+  const hadnleAdminloagout = () =>{
+    localStorage.removeItem("admintoken")
+    navigate("/")
+  }
 
   console.log("store",store);
 
@@ -84,6 +89,7 @@ function ManageItems() {
        </div>
     )
   }
+ 
   return (
     <>
       <MainNavbar/>
@@ -143,9 +149,11 @@ function ManageItems() {
     </div>
 
       }
- <button onClick={localStorage.setItem("admintoken",JSON.stringify(null))}>Log out</button>
-      <Link to="/banusers"><div>Bann user</div></Link>
-      <Link to="/removeban"><div>Unbann user</div></Link>
+      <br />
+      <br />
+      <button style={{color:"aliceblue"}} onClick={hadnleAdminloagout}>Log Out As Admin</button>
+      <br />
+      <br />
     </>
   )
 }

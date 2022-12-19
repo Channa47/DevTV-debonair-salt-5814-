@@ -21,7 +21,7 @@ function MainRoutes() {
             <Route path='/login' element={<LoginPage/>}/>
             <Route path='/searchboxpage' element={<PrivaterouteUser><SearchBoxPage/></PrivaterouteUser>}/>
             <Route path='/singlepage/:id' element={<PrivaterouteUser><SinglePage/></PrivaterouteUser>}/>
-            <Route path="/manageitems" element={<PrivaterouteAdmin><ManageItems/></PrivaterouteAdmin>} />
+            <Route path="/manageitems" element={<ManageItems/>}/>
             <Route path="/adminpage" element={<AdminPage/>} />  
             <Route path='/banusers' element={<PrivaterouteAdmin><Bannuseraccount/></PrivaterouteAdmin>}/>
             <Route path='/removeban' element={<PrivaterouteAdmin><Removebannannaccount/></PrivaterouteAdmin>}/>

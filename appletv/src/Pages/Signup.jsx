@@ -335,7 +335,7 @@ const SignupPage = ()=>{
        <MainNavbar/>
        <div className='form_div'>
       <form   className='form' onSubmit={handleSubmit(()=>onSubmit(data))}>
-      <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Login to DEV TV+</h1>
+      <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Sign In to DEV TV+</h1>
         <FormControl>
              
             <Input _placeholder={{color:"black"}} name='name' value={data.name} onChange={handleChange} className='input' color="black"  type='text' placeholder="Enter your name"/>

@@ -24,7 +24,7 @@ export const AddMovie = ()=>{
 
     // useEffect(()=>{
     //     dispatch(GetDataASAdmin());
-    // },[dispatch])
+    // },[])
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -46,6 +46,7 @@ export const AddMovie = ()=>{
                 isClosable: true,
               })
             SetData(init)
+           
         }
        
     }
