@@ -40,5 +40,11 @@
 # ScreenShots
 ![Screenshot (357)](https://github.com/Channa47/debonair-salt-5814/blob/main/devtvHomePage.png?raw=true)
 
+![Screenshot (357)](https://github.com/Channa47/debonair-salt-5814/blob/main/devtvhome2.png)
+
+![Screenshot (357)](https://github.com/Channa47/debonair-salt-5814/blob/main/devtvhome3.png?raw=true)
+
+![Screenshot (357)](https://github.com/Channa47/debonair-salt-5814/blob/main/devtvhome4.png?raw=true)
+
  
 
