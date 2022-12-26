@@ -13,6 +13,7 @@ import AllComedySeries from "../Componenets/AllComedySeries";
 import MainNavbar from "../Componenets/MainNavbar";
 import Footer from "../Componenets/Footer";
 import NonFiction from "../Componenets/NonFiction";
+import NewItemsScroll from "../Componenets/New";
 
 
 
@@ -34,8 +35,10 @@ export const HomePage=()=>{
             <AllDramaSeries/>
             <AllComedySeries />
             <NonFiction/>
+            {/* <NewItemsScroll/> */}
             <AppleFAQ/>
             <Footer/>
+
         </div>
     )
 }

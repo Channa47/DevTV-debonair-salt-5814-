@@ -12,7 +12,7 @@ import axios from 'axios';
 // Settings for the slider
 const settings = {
   
-  arrows: true,
+  arrows:false,
  
   infinite: true,
   autoplay: true,
@@ -23,7 +23,7 @@ const settings = {
 };
 const settingsForsmallTablet = {
   
-  arrows: true,
+  arrows:false,
  
   infinite: true,
   autoplay: true,
@@ -34,7 +34,7 @@ const settingsForsmallTablet = {
 };
 const settingsForMobile = {
   
-  arrows: true,
+  arrows:false,
  
   infinite: true,
   autoplay: true,
@@ -46,7 +46,7 @@ const settingsForMobile = {
 
 const settingsForTablet = {
   
-  arrows: true,
+  arrows:false,
  
   infinite: true,
   autoplay: true,

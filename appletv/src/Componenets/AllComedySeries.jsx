@@ -13,8 +13,8 @@ import { useNavigate } from 'react-router-dom';
 // Settings for the slider
 const settings = {
   
-  arrows: true,
- 
+  arrows: false,
+
   infinite: false,
   autoplay: false,
   speed: 50,
@@ -23,7 +23,7 @@ const settings = {
 };
 const settingsForsmallTablet = {
   
-  arrows: true,
+  arrows: false,
  
   infinite: false,
   autoplay: false,
@@ -33,7 +33,7 @@ const settingsForsmallTablet = {
 };
 const settingsForMobile = {
   
-  arrows: true,
+  arrows: false,
  
   infinite: false,
   autoplay: false,
@@ -44,7 +44,7 @@ const settingsForMobile = {
 
 const settingsForTablet = {
   
-  arrows: true,
+  arrows: false,
  
   infinite: false,
   autoplay: false,

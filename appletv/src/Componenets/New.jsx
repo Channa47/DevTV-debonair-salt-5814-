@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Box, IconButton, Image, Spinner, Text, useBreakpointValue } from '@chakra-ui/react';
 // Here we have used react-icons package for the icons
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
+// import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
+import { useNavigate } from 'react-router-dom';
 
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 // Settings for the slider
 const settings = {
   
   arrows:false,
  
-  infinite: false,
-  autoplay: false,
-  speed: 50,
+  infinite: true,
+  autoplay: true,
+  speed: 500,
+  autoplaySpeed:2000,
   slidesToShow: 5,
   slidesToScroll: 5,
 };
@@ -24,9 +25,10 @@ const settingsForsmallTablet = {
   
   arrows:false,
  
-  infinite: false,
-  autoplay: false,
+  infinite: true,
+  autoplay: true,
   speed: 50,
+  autoplaySpeed:2000,
   slidesToShow: 2,
   slidesToScroll: 2,
 };
@@ -34,9 +36,10 @@ const settingsForMobile = {
   
   arrows:false,
  
-  infinite: false,
-  autoplay: false,
+  infinite: true,
+  autoplay: true,
   speed: 50,
+  autoplaySpeed:2000,
   slidesToShow: 1,
   slidesToScroll: 1,
 };
@@ -45,14 +48,15 @@ const settingsForTablet = {
   
   arrows:false,
  
-  infinite: false,
-  autoplay: false,
+  infinite: true,
+  autoplay: true,
   speed: 50,
+  autoplaySpeed:2000,
   slidesToShow: 3,
   slidesToScroll: 3,
 };
 
-export default function WatchEntireSeasons() {
+export default function NewItemsScroll() {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState();
@@ -64,7 +68,9 @@ export default function WatchEntireSeasons() {
   const [cards,setCards]=useState([])
   const [loading,setLoading]=useState(false)
   const [error,setError]=useState(false)
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
+
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
   const top = useBreakpointValue({ base: '50%', md: '50%' });
@@ -98,12 +104,12 @@ export default function WatchEntireSeasons() {
   // }
 
   return (
-    <Box pt={['10px']}pb={['10px']}>
-    <Text fontSize={['16px','18px','20px','20px']} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>Watch Entire Seasons</Text>
+    <Box mt={10} pt={['10px']}pb={['10px']}>
+    <Text fontSize={['16px','18px','20px','20px']} fontWeight="500" w={'90%'} marginLeft='5%' textAlign='left'>New Added</Text>
    {/* For large screen */}
     <Box
     display={['none','none','none','block']}
-    marginTop={'50px'}
+    marginTop={'100px'}
       position={'relative'}
       height={'170px'}
       // border={'1px solid black'}
@@ -154,14 +160,18 @@ export default function WatchEntireSeasons() {
       
      <Box width="90%" display={['none','none','none','block']} borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settings} ref={(slider) => setSlider(slider)}>
-        {cards.map((item, index) => (
-            <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-              
-                <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
-            </Box>
-        ))}
+        { cards.map((item, index) => {
+          if(index>31){
+            return (
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                
+                  <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+                 
+  
+              </Box>
+          )
+          }
+        })}
       </Slider>
      </Box>
      
@@ -220,14 +230,18 @@ export default function WatchEntireSeasons() {
       
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForTablet} ref={(slider2) => setSlider2(slider2)}>
-        {cards.map((item, index) => (
-            <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-              
-                <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
-            </Box>
-        ))}
+        {cards.map((item, index) => {
+          if(index>31){
+            return (
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                
+                  <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+                 
+  
+              </Box>
+          )
+          }
+        })}
       </Slider>
      </Box>
      
@@ -286,14 +300,18 @@ export default function WatchEntireSeasons() {
       
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForsmallTablet} ref={(slider3) => setSlider3(slider3)}>
-        {cards.map((item, index) => (
-            <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-              
-                <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
-            </Box>
-        ))}
+        {cards.map((item, index) => {
+          if(index>31){
+            return (
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                
+                  <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+                 
+  
+              </Box>
+          )
+          }
+        })}
       </Slider>
      </Box>
      
@@ -352,14 +370,18 @@ export default function WatchEntireSeasons() {
       
      <Box width="90%"  borderBottom={'1px solid grey'} height={'100%'}  margin={'auto'}>
      <Slider   {...settingsForMobile} ref={(slider4) => setSlider4(slider4)}>
-        {cards.map((item, index) => (
-            <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}} >
-              
-                <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
-               
-
-            </Box>
-        ))}
+        {cards.map((item, index) => {
+          if(index>31){
+            return (
+              <Box onClick={()=>navigate(`/singlepage/${item.id}`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                
+                  <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+                 
+  
+              </Box>
+          )
+          }
+        })}
       </Slider>
      </Box>
      
