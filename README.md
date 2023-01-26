@@ -35,7 +35,10 @@
 - API-ITEMS- https://appllehomeserver.onrender.com
 
 /* CASE SENSITIVE */
-#Admin Credentials
+# Admin Credentials
+step1 : Go to Login page
+step2  : Click on Login As Admin
+enter the fallowing credentials.
 email : keshavaChanna47@gmail.com
 password : channa1234
 
