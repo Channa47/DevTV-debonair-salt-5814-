@@ -35,6 +35,9 @@
 - API-ITEMS- https://appllehomeserver.onrender.com
 
 /* CASE SENSITIVE */
+#Admin Credentials
+email : keshavaChanna47@gmail.com
+password : channa1234
 
 
 # ScreenShots
