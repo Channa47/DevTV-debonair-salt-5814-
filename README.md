@@ -39,6 +39,12 @@
 email : keshavaChanna47@gmail.com
 password : channa1234
 
+# User can register and login.
+ As we Deployed the json server in render.com , it will take a while to save the user details so , 
+ sample user details already present in the data base 
+ email : user1@gmail.com
+ password : user1password
+
 
 # ScreenShots
 ![Screenshot (357)](https://github.com/Channa47/debonair-salt-5814/blob/main/devtvHomePage.png?raw=true)
