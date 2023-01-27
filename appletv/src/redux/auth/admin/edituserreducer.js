@@ -79,8 +79,7 @@ const init3 = {
 }
 
 export const removebannreducer = (state = init3, action) => {
-    console.log(action.payload)
-    console.log(action.type)
+ 
     switch (action.type) {
         case types.REMOVEBANNREQUEST: {
             return {

@@ -34,18 +34,18 @@ function ManageItems() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const toast = useToast()
-  // console.log(store);
+ 
 
   useEffect(()=>{
     dispatch(GetDataASAdmin())
   },[dispatch,store.Data.length])
 
   const hadnleAdminloagout = () =>{
-    localStorage.removeItem("admintoken")
-    navigate("/")
+   window.localStorage.clear()
+   navigate('/')
   }
 
-  console.log("store",store);
+
 
   const handleChange = (e) => {
     const val = e.target.value
@@ -81,7 +81,7 @@ function ManageItems() {
   }
 
 
-  console.log(store.Data)
+
    if(store.isLoading){
     return  (
        <div style={{justifyContent:"center",marginTop:"10%"}}>
