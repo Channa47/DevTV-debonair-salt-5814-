@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate,Link } from 'react-router-dom'
 import { useToast } from '@chakra-ui/react'
-
+import axios from 'axios'
 import "./Signup.css"
 import { useForm } from 'react-hook-form'
 
@@ -22,28 +22,28 @@ const LoginPage = () => {
     password: "",
   }
   const [data, setData] = useState(init)
+  const [ButtonMsg , setbuttonmsg] = useState('Log In')
  const toast = useToast()
  const navigate = useNavigate()
   const { handleSubmit, formState: { errors, isSubmitting }, } = useForm()
 
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(getDataSignup())
-  }, [dispatch])
-  useEffect(()=>{
-    dispatch(getbanuser(data))
-  },[])
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(getDataSignup())
+  // }, [dispatch])
+  // useEffect(()=>{
+  //   dispatch(getbanuser(data))
+  // },[])
 
   const userdata = useSelector(store => store.getSignupreducer.userdata)
-  console.log(userdata)
+
   const banneduserdata = useSelector(store => store.getbannreducer.banneduserlist)
-  console.log(banneduserdata)
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setData({ ...data, [name]: value })
   }
-  let tokendata = JSON.parse(localStorage.getItem("token")) || []
-  console.log(tokendata)
+
   const onSubmit = (data) => {
     let banneduser = banneduserdata.filter(ele=>ele.email === data.email)
     let loginuser = userdata.filter(ele => ele.email === data.email && ele.password == data.password)
@@ -92,10 +92,55 @@ const LoginPage = () => {
   }
 
 
+  const LoginUser = (e)=>{
+    e.preventDefault()
+    
+    setbuttonmsg('Loading...')
+    axios.post('https://appletvplusmndbs.onrender.com/user/login',data)
+    .then((r)=>
+    {
+      if(r.data.msg === 'Login SuccessFull'){
+        toast({
+          title: 'Success',
+          status: 'success',
+          description:`${r.data.msg}`,
+          duration: 9000,
+          isClosable: true,
+        })
+        localStorage.setItem('appletvtoken',r.data.token)
+        localStorage.setItem('appletvloggedinuser',JSON.stringify(r.data.user[0]))
+        navigate('/')
+        setbuttonmsg("Log In")
+      }else{
+        toast({
+          title: 'Failed',
+          status: 'warning',
+          description:`${r.data.msg}`,
+          duration: 9000,
+          isClosable: true,
+        })
+        setbuttonmsg('Log In')
+      }
+   
+    })
+    .catch((r)=>{
+    toast({
+      title: 'Failed',
+      status: 'warning',
+      description:`${r.code}`,
+      duration: 9000,
+      isClosable: true,
+    })
+    
+    })
+  }
+
+
   return (<>
     <MainNavbar/>
     <div className='form_div'>
-    <form className='form' onSubmit={handleSubmit(() => onSubmit(data))}>
+      {/* onSubmit={handleSubmit(() => onSubmit(data))} */}
+    <form className='form' >
     <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Login Page</h1>
       <FormControl>
 
@@ -104,13 +149,13 @@ const LoginPage = () => {
         <Input _placeholder={{color:"black"}} name="password" value={data.password} onChange={handleChange} className='input' type='password' placeholder="Enter your password" />
 
       </FormControl>
-      <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
-        Submit
+      <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit' onClick={LoginUser}>
+        {ButtonMsg}
       </Button>
       <br />
        <br/>
       <Link to="/signup"><h1 style={{color:"aliceblue"}}>Create an account</h1></Link>
-      <Link to="/adminpage"><h1 style={{color:"aliceblue"}}>Login Admin As </h1></Link>
+      <Link to="/adminpage" onClick={()=>window.localStorage.clear()}><h1 style={{color:"aliceblue"}}>Login Admin As </h1></Link>
     </form>
     </div>
   </>

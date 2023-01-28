@@ -4,7 +4,7 @@ import { Navigate } from "react-router"
 
 export const PrivaterouteAdmin = ({children})=>{
   // const [token , settoken] = useState(null)
-  let token = localStorage.getItem("admintoken");
+  let token = localStorage.getItem("appletvadmintoken");
     // let navigate = useNavigate()
     if(token){
         return children

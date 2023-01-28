@@ -13,6 +13,7 @@ import "./Admin.css"
 import { useForm } from 'react-hook-form'
 
 import { getAdmindata } from '../redux/auth/admin/adminaction'
+import axios from 'axios'
 
 const AdminPage = () => {
     const init = {
@@ -20,7 +21,7 @@ const AdminPage = () => {
         password: "",
     }
     const [data, setData] = useState(init)
-
+  const [buttonmsg , setbuttonmsg] = useState("Log In")
     const { handleSubmit, formState: { errors, isSubmitting }, } = useForm()
     const dispatch = useDispatch()
     const toast = useToast()
@@ -29,7 +30,7 @@ const AdminPage = () => {
         dispatch(getAdmindata())
     }, [dispatch])
     const admin = useSelector(store=>store.adminreducer.admindata)
-            console.log(admin)
+           
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -71,8 +72,50 @@ const AdminPage = () => {
         
     }
 
+    const AdminLogin = (e) =>{
+        e.preventDefault();
+        setbuttonmsg("Loading....")
+        axios.post('https://appletvplusmndbs.onrender.com/admin/login',data)
+        .then((r)=>{;
+        if(r.data.msg === 'Login SuccessFull'){
+        localStorage.setItem('appletvadmintoken',r.data.token);
+        localStorage.setItem('appletvloggedinuser',JSON.stringify(r.data.admin[0]));
+        toast({
+            title: `${r.data.msg}`,
+            status: 'success',
+            description:`Welcome back ${r.data.admin[0].name}`,
+            duration: 9000,
+            isClosable: true,
+          })
+        
+        setbuttonmsg("Log In")
+        navigate('/')
+        }else{
+            toast({
+                title: 'Login Failed',
+                status: 'warning',
+                description:`${r.data.msg}`,
+                duration: 9000,
+                isClosable: true,
+              })
+              setbuttonmsg("Log In")
+        }
+        })
+        .catch((e)=>{
+            toast({
+                title: 'Login Failed',
+                status: 'warning',
+                description:`${e.code}`,
+                duration: 9000,
+                isClosable: true,
+              })
+              setbuttonmsg("Log In")
+        })
+    };
+
     return (<div className='form_div2'>
-        <form className='form2' onSubmit={handleSubmit(() => onSubmit(data))}>
+        {/* onSubmit={handleSubmit(() => onSubmit(data))} */}
+        <form className='form2' >
         <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Addmin login</h1>
             <FormControl>
 
@@ -81,8 +124,8 @@ const AdminPage = () => {
                 <Input _placeholder={{color:"black"}} name="password" value={data.password} onChange={handleChange} className='input' type='password' placeholder="Enter your password" />
 
             </FormControl>
-            <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit'>
-                Submit
+            <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit' onClick={AdminLogin}>
+               {buttonmsg}
             </Button>
 
         </form>

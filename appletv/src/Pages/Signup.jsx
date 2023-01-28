@@ -8,13 +8,13 @@ import { postDatasignup } from '../redux/signup/signupaction'
 import MainNavbar from '../Componenets/MainNavbar'
 import { useNavigate } from 'react-router-dom'
 import { useToast } from '@chakra-ui/react'
+import axios from 'axios'
 const SignupPage = ()=>{
     const init = {
         name:"",
         email:"",
         username:"",
         password:"",
-       token:null,
        country:"",
        checkbox:false
     }
@@ -23,7 +23,7 @@ const SignupPage = ()=>{
   const dispatch = useDispatch()
   const userdata = useSelector(store=>store.getSignupreducer)
   const navigate = useNavigate()
-  console.log(userdata)
+
   const toast = useToast();
   const {
     handleSubmit,
@@ -275,10 +275,12 @@ const SignupPage = ()=>{
         {name: 'Zimbabwe', code: 'ZW'} 
       ]
  
-      useEffect(()=>{
-          dispatch(getDataSignup())
-      },[])
+      // useEffect(()=>{
+      //     dispatch(getDataSignup())
+      // },[])
 
+    
+  const [butontext , setbutonText] = useState('Sign Up');
       const handleChange = (e)=>{
             const {name} = e.target 
             let val;
@@ -327,15 +329,72 @@ const SignupPage = ()=>{
           }
         }
        
-        //
-        // console.log(payload)
+
         
+      }
+
+      const RegisterUser = (e)  =>{
+        e.preventDefault();
+      
+       let paylaod = {
+        name: data.name,
+        email: data.email,
+        username: data.username,
+        password: data.password,
+        country: data.country,
+        checkbox: data.checkbox
+       }
+       if(data.email == '' || data.email.length <= 10 || data.checkbox===false){
+        toast({
+          title: 'Error',
+          description: `Enter Valid Email`,
+          status: 'warning',
+          duration: 9000,
+          isClosable: true,
+        })
+       }else{
+        setbutonText("Loading....")
+        axios.post('https://appletvplusmndbs.onrender.com/user/reg',paylaod)
+        .then((r)=>{
+        if(r.data.msg === 'user Registered'){
+          toast({
+            title: 'Account created.',
+            description: `${r.data.msg}`,
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
+        setbutonText("Sign Up")
+        navigate('/login')
+        }else{
+          toast({
+            title: 'Failed',
+            status: 'warning',
+            description:`${r.data.msg}`,
+            duration: 9000,
+            isClosable: true,
+          })
+          setbutonText("Sign up")
+        }
+        })
+        .catch((e)=>{
+          toast({
+            title: 'Failed',
+            status: 'warning',
+            description:`${e.code}`,
+            duration: 9000,
+            isClosable: true,
+          })
+          setbutonText("Sign Up")
+        })
+       }
       }
    return (<>
        <MainNavbar/>
        <div className='form_div'>
-      <form   className='form' onSubmit={handleSubmit(()=>onSubmit(data))}>
-      <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Sign In to DEV TV+</h1>
+       {/* onSubmit={handleSubmit(()=>onSubmit(data))} */}
+      <form   className='form'  >
+      <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Sign Up to DEV TV+</h1>
         <FormControl>
              
             <Input _placeholder={{color:"black"}} name='name' value={data.name} onChange={handleChange} className='input' color="black"  type='text' placeholder="Enter your name"/>
@@ -358,8 +417,8 @@ const SignupPage = ()=>{
          
         </FormControl>
         <br/>
-        <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit' className='btn'>
-        Submit
+        <Button mt={4} colorScheme='teal' isLoading={isSubmitting} type='submit' className='btn' onClick={RegisterUser}>
+         {butontext}
       </Button>
 
      </form>
