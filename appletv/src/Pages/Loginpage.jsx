@@ -104,7 +104,7 @@ const LoginPage = () => {
           title: 'Success',
           status: 'success',
           description:`${r.data.msg}`,
-          duration: 9000,
+          duration: 4000,
           isClosable: true,
         })
         localStorage.setItem('appletvtoken',r.data.token)
@@ -116,7 +116,7 @@ const LoginPage = () => {
           title: 'Failed',
           status: 'warning',
           description:`${r.data.msg}`,
-          duration: 9000,
+          duration: 4000,
           isClosable: true,
         })
         setbuttonmsg('Log In')
@@ -128,7 +128,7 @@ const LoginPage = () => {
       title: 'Failed',
       status: 'warning',
       description:`${r.code}`,
-      duration: 9000,
+      duration: 4000,
       isClosable: true,
     })
     
