@@ -131,7 +131,7 @@ const LoginPage = () => {
       duration: 4000,
       isClosable: true,
     })
-    
+    setbuttonmsg('Log In')
     })
   }
 
@@ -141,7 +141,7 @@ const LoginPage = () => {
     <div className='form_div'>
       {/* onSubmit={handleSubmit(() => onSubmit(data))} */}
     <form className='form' >
-    <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Login Page</h1>
+    <h1 style={{color:"black", fontSize:"200%",fontWeight:"bold"}}>Login</h1>
       <FormControl>
 
         <Input _placeholder={{color:"black"}} name="email" value={data.email} onChange={handleChange} className='input' type='email' placeholder="enter your email" />
