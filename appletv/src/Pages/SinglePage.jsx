@@ -14,6 +14,7 @@ import Related from "../Componenets/SinglePageComponents/Related";
 import Trailers from "../Componenets/SinglePageComponents/Trailers";
 import styles from "./SinglePage.module.css"
 import MainNavbar from "../Componenets/MainNavbar";
+import WatchEntireSeasons from "../Componenets/WatchEntireSeasons";
 
 
 export default function SinglePage(){
@@ -65,11 +66,15 @@ export default function SinglePage(){
 
 <hr style={{background:"grey",height:"0.8px",width:"98%",margin:"auto",marginTop:"30px",marginBottom:"20px"}}/>
      
-     <Related/>
+     <div style={{marginLeft:"-20px"}}>
+     <WatchEntireSeasons/>
+     </div>
 
 <hr style={{background:"grey",height:"0.8px",width:"98%",margin:"auto",marginBottom:"20px"}}/>
      
+     <div style={{marginLeft:"-20px"}}>
      <CrewAndCast/>
+     </div>
 
 <hr style={{background:"grey",height:"0.8px",width:"98%",margin:"auto",marginBottom:"20px"}}/>   
 
