@@ -32,11 +32,12 @@ export default function SinglePage(){
             setInfo(res.data.info);
             setLanguages(res.data.languages || res.data.launguages)
         }).catch(err=>console.log("ERROR IS:",err)); 
+        window.scrollTo(0,0)
     }
 
     useEffect(()=>{
          getSinlgeMovie()
-    },[])
+    },[id])
 
     return(
      <>
