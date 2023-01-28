@@ -349,7 +349,7 @@ const SignupPage = ()=>{
           title: 'Error',
           description: `Enter Valid Email`,
           status: 'warning',
-          duration: 9000,
+          duration: 4000,
           isClosable: true,
         })
        }else{
@@ -361,7 +361,7 @@ const SignupPage = ()=>{
             title: 'Account created.',
             description: `${r.data.msg}`,
             status: 'success',
-            duration: 9000,
+            duration: 4000,
             isClosable: true,
           })
         setbutonText("Sign Up")
@@ -371,7 +371,7 @@ const SignupPage = ()=>{
             title: 'Failed',
             status: 'warning',
             description:`${r.data.msg}`,
-            duration: 9000,
+            duration: 4000,
             isClosable: true,
           })
           setbutonText("Sign up")
@@ -382,7 +382,7 @@ const SignupPage = ()=>{
             title: 'Failed',
             status: 'warning',
             description:`${e.code}`,
-            duration: 9000,
+            duration: 4000,
             isClosable: true,
           })
           setbutonText("Sign Up")

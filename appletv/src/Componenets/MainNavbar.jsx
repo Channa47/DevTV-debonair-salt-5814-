@@ -20,7 +20,7 @@ import {
   PopoverCloseButton,
   PopoverAnchor,
 } from "@chakra-ui/react";
-
+import {FaUserAlt}  from  'react-icons/fa'
 
 import { useNavigate } from "react-router-dom";
 import { CloseIcon, HamburgerIcon,AtSignIcon,CircleIcon,CheckIcon } from "@chakra-ui/icons";
@@ -97,23 +97,10 @@ function MainNavbar() {
               {admintoken && 
               <Button onClick={()=>navigate("/manageitems")} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">Admin Page</Button>}
               <Link to="/searchboxpage"><input onChange={(e)=>handChange(e)} style={{border:"2px solid white" , backgroundColor:"black", color:"white"}} placeholder="&#128270; Search"  type="text" /></Link>
-              <Button onClick={()=>{navigate("/login")}} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">{usertoken?
-              <>
-              {/* <CheckIcon  color='green.500' />{usertoken} */}
-              <Popover closeOnBlur={true}>
-                <PopoverTrigger>
-                <button>{usertoken}</button>
-                </PopoverTrigger>
-                <PopoverContent>
-                  <PopoverArrow />
-                  <PopoverCloseButton />
-                  <PopoverHeader color={"green"}>Your Currently logged in</PopoverHeader>
-                  <PopoverBody>
-                    <button onClick={()=>{window.localStorage.clear()}} style={{backgroundColor:"red" ,borderRadius:"5px",width:"80%"}}>LogOut</button>
-                  </PopoverBody>
-                </PopoverContent>
-              </Popover>
-              </>
+              
+              <Button onClick={()=>navigate('/login')} border={"none"} _hover={{background:"blue"}} mr={"20px"} background={"blue"} color="white">
+              {usertoken?
+              `${usertoken}`
               :"Sign up"
               }
               </Button>
@@ -125,6 +112,23 @@ function MainNavbar() {
                 <PopoverBody> <SignupPage/>    </PopoverBody>
                 </PopoverContent>
                 </Popover> */}
+                {usertoken && 
+                <Popover closeOnBlur={true}>
+                <PopoverTrigger>
+                <button style={{color:'white'}} > <FaUserAlt/> </button>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <PopoverHeader color={"green"}>Your Currently logged in</PopoverHeader>
+                  <PopoverBody>
+                    <button onClick={()=>{window.localStorage.clear();navigate('/')}} style={{backgroundColor:"red" ,borderRadius:"5px",width:"80%"}}>LogOut</button>
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
+                
+                
+                }
             </HStack>
           </Flex>
         </Flex>
