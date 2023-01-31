@@ -14,12 +14,13 @@ import ManageItems from "./Pages/ManageItemsPage"
 import MainNavbar from "./Componenets/MainNavbar"
 import SearcToDelete from './Componenets/SearcToDelete';
 import Loadder from './Componenets/Loadder';
-
+import Skeliton from './Componenets/Skeliton';
 
 function App() {
   return (
     <div className="App">
       <MainRoutes/>
+      {/* <Skeliton/> */}
     </div>
     
   );

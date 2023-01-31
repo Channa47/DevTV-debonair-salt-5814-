@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
 import axios from 'axios';
-
+import Skeliton from './Skeliton';
 // Settings for the slider
 const settings = {
   
@@ -65,6 +65,7 @@ export default function WatchPremierForFree() {
   const [cards,setCards]=useState([])
   const [loading,setLoading]=useState(false)
   const [error,setError]=useState(false)
+ const [load , setload] = useState(true)
 
   const navigate = useNavigate()
 
@@ -89,16 +90,18 @@ export default function WatchPremierForFree() {
   useEffect(()=>{
     getData()
   },[])
-  
-  // if(loading){
-  //   return <Spinner
+
+  // <Spinner
   //   thickness='4px'
   //   speed='0.65s'
   //   emptyColor='gray.200'
   //   color='blue.500'
   //   size='xl'
   // />
-  // }
+  
+  if(loading){
+    return  <Skeliton/>
+  }
 
   return (
     <Box pt={['10px']}pb={['10px']}>

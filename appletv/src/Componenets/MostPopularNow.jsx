@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
 import axios from 'axios';
+import Skeliton from './Skeliton';
 
 // Settings for the slider
 const settings = {
@@ -102,6 +103,9 @@ export default function WatchPremierForFree() {
   //   size='xl'
   // />
   // }
+  if(loading){
+    return  <Skeliton/>
+  }
 
   return (
     <Box pt={['10px']}pb={['10px']}>
