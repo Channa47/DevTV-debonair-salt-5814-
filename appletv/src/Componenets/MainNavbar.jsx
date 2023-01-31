@@ -36,8 +36,8 @@ function MainNavbar() {
   }
   let User = JSON.parse(localStorage.getItem('appletvloggedinuser'));
   let AdminToken = localStorage.getItem('appletvadmintoken');
-  console.log(User);
-  console.log(AdminToken);
+  // console.log(User);
+  // console.log(AdminToken);
   let admintoken = AdminToken
   let usertoken;
   if(User){

@@ -45,8 +45,9 @@ let url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResu
         {
             suggestions.map((item, index)=>{
                 return <div key={index}>
-                  <div  onClick={()=>navigate(`/singlepage/${item.id}`)} style={{cursor:"pointer"}}>
-                  {item.name}
+                  <div  onClick={()=>navigate(`/singlepage/${item.id}`)} style={{width:"100%",cursor:"pointer",gap:"8%", display:"flex",alignItems:"center",borderBottom:"1px solid grey"}}>
+                  <img style={{width:"40%"}} src={item.poster_img} alt="movie_poster" />
+                  <p>{item.name}</p>
                   </div>
                   </div>
             })
@@ -100,23 +101,20 @@ const SugestionsBox = styled.div`
 
 max-height: 130px;
 overflow: auto;
+border-radius:0px 0px 10px 10px;
 background-color: white;
-float:right;
 & * {
-    padding: 10px;
+    padding: 5px;
     text-align:left;
-    padding-left: 20px;
 }
  @media screen and (max-width: 280px){
    
 max-height: 90px;
 overflow: auto;
 background-color: white;
-float:right;
 & * {
     padding: 10px;
     text-align:left;
-    padding-left: 20px;
 }
 }
 `;

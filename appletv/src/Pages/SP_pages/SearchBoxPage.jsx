@@ -26,7 +26,7 @@ const SearchBoxPage = () => {
          false;
 
        })
-       
+       //console.log(newSugestion)
        setSugestions(newSugestion)
     }
 },[query]);

@@ -90,7 +90,7 @@ export default function WatchPremierForFree() {
     }
   }
   useEffect(()=>{
-    getData()
+    getData();
   },[])
   
   // if(loading){
