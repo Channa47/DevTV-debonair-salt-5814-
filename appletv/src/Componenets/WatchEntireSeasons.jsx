@@ -8,6 +8,7 @@ import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
 import Slider from 'react-slick';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Skeliton from './Skeliton';
 
 // Settings for the slider
 const settings = {
@@ -96,6 +97,10 @@ export default function WatchEntireSeasons() {
   //   size='xl'
   // />
   // }
+  
+  if(loading){
+    return  <Skeliton/>
+  }
 
   return (
     <Box pt={['10px']}pb={['10px']}>

@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { GetDataASAdmin } from '../redux/app/adminadditems/action';
 import { useNavigate } from 'react-router-dom';
+import Skeliton from './Skeliton';
 
 
 // Settings for the slider
@@ -106,6 +107,10 @@ export default function NonFiction() {
   //   size='xl'
   // />
   // }
+  
+  if(loading){
+    return  <Skeliton/>
+  }
 
   return (
     <Box pt={['10px']}pb={['10px']} height={['220px','220px','220px','250px']}  >
