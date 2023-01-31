@@ -28,7 +28,7 @@
  * JSON Server
  
 # Deployment 
-[Visit Our Website] https://devtvplus.netlify.app
+[Visit Our Website]  https://dev-tv-plus.vercel.app/
 # User Authentication api's
 
 - API-Login_Signup - https://appletvusers.onrender.com
